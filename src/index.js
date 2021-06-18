@@ -10,4 +10,4 @@ const refs = {
 //   refs.filmGallery.insertAdjacentHTML('beforeend', gridItemTbs);
 // }
 
-refs.filmGallery.insertAdjacentHTML('beforeend', gridItemTbs());
+// refs.filmGallery.insertAdjacentHTML('beforeend', gridItemTbs());
