@@ -1,6 +1,5 @@
 import './sass/main.scss';
-import '../src/partials/grid.css';
-import gridItemTbs from './templates/grid-item.hbs';
+import galleryItemTbs from './templates/gallery-item.hbs';
 
 const refs = {
   filmGallery: document.querySelector('.gallery'),
@@ -10,4 +9,4 @@ const refs = {
 //   refs.filmGallery.insertAdjacentHTML('beforeend', gridItemTbs);
 // }
 
-refs.filmGallery.insertAdjacentHTML('beforeend', gridItemTbs());
+refs.filmGallery.insertAdjacentHTML('beforeend', galleryItemTbs());
