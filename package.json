@@ -27,5 +27,6 @@
   },
   "dependencies": {
     "modern-normalize": "^1.1.0"
+    "handlebars": "^4.7.7"
   }
 }
