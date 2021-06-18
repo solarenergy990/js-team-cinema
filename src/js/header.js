@@ -1,5 +1,5 @@
 import libraryHeaderTpl from '../templates/libraryHeaderTpl.hbs';
-import '../sass/main.scss';
+// import '../sass/main.scss';
 const libraryPage = document.querySelector('.js-library');
 const pageHeader = document.querySelector('.page-header');
 
