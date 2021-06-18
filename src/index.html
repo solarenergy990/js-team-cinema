@@ -1,20 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filmoteka</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+      integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
+      crossorigin="anonymous"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Filmoteka</title>
-  <link rel="stylesheet" href="node_modules/modern-normalize/modern-normalize.css">
-</head>
-
-<body>
-  <!-- partials included by teammates according to the place they must be -->
-  <main>
-
-  </main>
-
-  <script src="./index.js"></script>
-</body>
-
+  <body>
+    <!-- partials included by teammates according to the place they must be -->
+    <header class="page-header">
+      <div class="home-bgc-container" id="home">
+        <div class="container home-container">
+          <div class="header-box">
+            <div class="logo-box">
+              <svg class="logo-icon" width="24" height="24">
+                <use href="/images/symbol-defs.svg#icon-film"></use>
+              </svg>
+              <a href="./index.html" class="logo"><span class="logo-text">Filmoteka</span></a>
+            </div>
+            <nav>
+              <!-- current -->
+              <a href="./index.html" class="link">Home</a>
+              <a href="/" class="link js-library">my library</a>
+            </nav>
+          </div>
+          <div class="form-container">
+            <form class="search-form">
+              <input
+                id="elem1"
+                type="text"
+                placeholder="Поиск фильмов"
+                class="js-input search-input"
+                name="query"
+              />
+            </form>
+            <svg class="search-icon" width="12" height="12">
+              <use href="/images/symbol-defs.svg#icon-search"></use>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main></main>
+    <script src="./js/header.js"></script>
+    <script src="./index.js"></script>
+  </body>
 </html>
