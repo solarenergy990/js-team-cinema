@@ -1,0 +1,280 @@
+// подключить стили кнопок от Саши, сделать рефакторинг цвета, общие, переиспользуемые стили, шаблон и тд.
+body {
+  font-family: Roboto;
+  font-weight: 400;
+}
+.page-header {
+  width: 100%;
+}
+
+.home-container {
+  max-width: 1024px;
+
+  padding-top: 41px;
+  padding-bottom: 97px;
+
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-bgc-container {
+  max-width: 100%;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url('../images/home/mobile-header.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url('../images/home/mobile-header@2x.jpg');
+  }
+  // (min-width: $mobile + 1px)
+  @media screen and (min-width: 321px) {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url('../images/home/tablet-header.jpg');
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url('../images/home/tablet-header@2x.jpg');
+    }
+  }
+  //   (min-width: $tablet + 1px)
+  @media screen and (min-width: 769px) {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url('../images/home/desktop-header.jpg');
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url('../images/home/desktop-header@2x.jpg');
+    }
+  }
+}
+// library-bgc-container
+.library-bgc-container {
+  max-width: 100%;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url('../images/my-library/mobile-header.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url('../images/my-library/mobile-header@2x.jpg');
+  }
+  // (min-width: $mobile + 1px)
+  @media screen and (min-width: 321px) {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url('../images/my-library/tablet-header.jpg');
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url('../images/my-library/tablet-header@2x.jpg');
+    }
+  }
+  //   (min-width: $tablet + 1px)
+  @media screen and (min-width: 769px) {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url('../images/my-library/desktop-header.jpg');
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url('../images/my-library/desktop-header@2x.jpg');
+    }
+  }
+}
+
+.container {
+  width: 100%;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    width: 320px;
+    padding-top: 46px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    padding-left: 75px;
+    padding-right: 75px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 1024px;
+    padding-left: 71px;
+    padding-right: 71px;
+  }
+}
+.header-box {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.logo {
+  display: block;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.17;
+
+  color: #ffffff;
+  margin-left: 10px;
+}
+
+.logo-box {
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  margin-bottom: 0;
+  width: 336px;
+  height: 20px;
+  margin-top: 37px;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.561);
+  outline: none;
+
+  &::placeholder {
+    font-size: 14px;
+    line-height: 1.14;
+    color: #ffffff;
+  }
+}
+
+.link {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.17;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+// base
+a {
+  text-decoration: none;
+}
+
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  display: flex;
+  align-items: flex-end;
+}
+
+nav .link {
+  position: relative;
+}
+
+nav .link:not(:last-child) {
+  margin-right: 39px;
+}
+
+nav .link::after {
+  position: absolute;
+  bottom: -2px;
+  border-radius: 3px;
+  content: '';
+  display: block;
+  width: 100%;
+  height: 4px;
+  opacity: 0;
+  background-color: #ff6b08;
+  // transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+nav .link.current::after {
+  opacity: 1;
+}
+
+.link:hover::after,
+.link:focus::after {
+  opacity: 1;
+}
+
+.form-container {
+  position: relative;
+}
+.search-icon {
+  position: absolute;
+  top: 4px;
+  right: 272px;
+}
+
+@media screen and (min-width: 321px) and (max-width: 767px) {
+  .logo {
+    display: none;
+  }
+  .search-input {
+    // width: 280px;
+    width: 100%;
+  }
+  .search-icon {
+    position: absolute;
+    top: 4px;
+    right: 1px;
+  }
+}
+
+@media screen and (min-width: 766px) and (max-width: 1023px) {
+  .search-icon {
+    position: absolute;
+    top: 4px;
+    right: 141px;
+  }
+}
+
+// library
+
+.button-container {
+  display: flex;
+  // align-items: center;
+  justify-content: center;
+  margin-top: 45px;
+}
+
+.library-container {
+  max-width: 1024px;
+
+  padding-top: 41px;
+  padding-bottom: 65px;
+
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button-container .button:not(:last-child) {
+  margin-right: 15px;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    margin-right: 20px;
+  }
+}
