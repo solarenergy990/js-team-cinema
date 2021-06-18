@@ -44,50 +44,31 @@ img {
 
 .section {
   width: 100%;
-  /* padding: 60px 0; */
 }
 
 .gallery-container {
+  width: 320px;
   padding: 10px;
 
-  /* width: 100%;
-  padding-left: 15px;
-  padding-right: 15px;
   margin-right: auto;
   margin-left: auto;
-  align-content: center; */
+  align-content: center;
 }
 
 @media screen and (min-width: 768px) {
   .gallery-container {
+    width: 768px;
     padding: 40px 60px;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .gallery-container {
+    width: 1024px;
     padding-left: 56px;
     padding-right: 56px;
   }
 }
-
-/* @media screen and (min-width: 320px) {
-  .container {
-    width: 320px;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .container {
-    width: 768px;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .container {
-    width: 1024px;
-  }
-} */
 
 .gallery {
   display: grid;
@@ -119,14 +100,14 @@ img {
   }
 }
 
-.poster-container {
+/* .poster-container {
 }
 
 .poster {
 }
 
 .text-container {
-}
+} */
 
 .text-title {
   font-size: 12;
@@ -144,69 +125,14 @@ img {
   font-size: 12px;
   line-height: 1.33;
 
-  color: #000000;
+  color: rgb(229, 16, 16);
 }
 
-.section-grid {
+/* .gallery-section {
   padding-top: 60px;
   padding-bottom: 60px;
   @media screen and (min-width: 1024px) {
     padding-top: 94px;
     padding-bottom: 94px;
   }
-}
-
-.grid-container {
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.gallery-list {
-  /* width: 100%;
-    // padding-left: 15px;
-    // padding-right: 15px;
-    // margin-left: auto;
-    // margin-right: auto;
-    //   width: 1200; */
-
-  @media screen and (min-width: 768px) {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: -30px;
-    margin-top: -30px;
-  }
-}
-
-/* .grid-card {
-  position: relative;
-  overflow: hidden;
 } */
-
-.gallery-list-item {
-  width: 100%;
-
-  @media screen and (min-width: 768px) {
-    width: 274px;
-  }
-
-  /* @media screen and (min-width: 1024px) {
-    width: 370px;
-  } */
-}
-
-.gallery-list-item:not(:last-child) {
-  margin-bottom: 30px;
-
-  @media screen and (min-width: 768px) {
-    &:not(:last-child) {
-      margin-bottom: unset;
-    }
-
-    margin-left: 30px;
-    margin-top: 30px;
-  }
-
-  border: 1px solid #eeeeee;
-}
