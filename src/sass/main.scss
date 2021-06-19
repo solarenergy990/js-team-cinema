@@ -3,7 +3,13 @@
  * Все паршалы подключаются сюда.
  */
 
-@import './header';
 @import './utils/variables';
-@import './components/footer';
+@import './utils/base';
+@import './utils/visually-hidden';
+@import './utils/mixins';
+@import './components/reused';
+
+@import './header';
 @import './components/gallerry';
+@import './components/footer';
+
