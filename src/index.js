@@ -3,3 +3,7 @@
 import './sass/main.scss';
 import './js/header';
 // import './js/gallery';
+import './js/renderMovie';
+
+
+
