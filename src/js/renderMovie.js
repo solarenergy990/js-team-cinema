@@ -7,7 +7,9 @@ const GENRES = [];
 const movieSearch = new MovieSearch();
 
 const renderImg = movies => {
+
   const markupMovie = movies.results.map(movies => filmCardTemplate(movies)).join('');
+
 
   refs.filmGallery.insertAdjacentHTML('beforeend', markupMovie);
 };
