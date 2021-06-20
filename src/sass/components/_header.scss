@@ -1,21 +1,7 @@
 // подключить стили кнопок от Саши, сделать рефакторинг цвета, общие, переиспользуемые стили, шаблон и тд.
-body {
-  font-family: Roboto;
-  font-weight: 400;
-}
+
 .page-header {
   width: 100%;
-}
-
-.home-container {
-  max-width: 1024px;
-
-  padding-top: 41px;
-  padding-bottom: 97px;
-
-  height: auto;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .home-bgc-container {
@@ -31,7 +17,6 @@ body {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url('../images/home/mobile-header@2x.jpg');
   }
-  // (min-width: $mobile + 1px)
   @media screen and (min-width: 321px) {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url('../images/home/tablet-header.jpg');
@@ -42,7 +27,6 @@ body {
         url('../images/home/tablet-header@2x.jpg');
     }
   }
-  //   (min-width: $tablet + 1px)
   @media screen and (min-width: 769px) {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url('../images/home/desktop-header.jpg');
@@ -68,7 +52,6 @@ body {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url('../images/my-library/mobile-header@2x.jpg');
   }
-  // (min-width: $mobile + 1px)
   @media screen and (min-width: 321px) {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url('../images/my-library/tablet-header.jpg');
@@ -79,7 +62,6 @@ body {
         url('../images/my-library/tablet-header@2x.jpg');
     }
   }
-  //   (min-width: $tablet + 1px)
   @media screen and (min-width: 769px) {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url('../images/my-library/desktop-header.jpg');
@@ -92,97 +74,47 @@ body {
   }
 }
 
-.container {
-  width: 100%;
-
-  margin-left: auto;
-  margin-right: auto;
-
-  @media screen and (min-width: 320px) and (max-width: 767px) {
-    width: 320px;
-    padding-top: 46px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
+.header-container {
+  max-width: 320px;
   @media screen and (min-width: 768px) {
-    width: 768px;
-    padding-left: 75px;
-    padding-right: 75px;
+    max-width: 768px;
   }
 
   @media screen and (min-width: 1024px) {
-    width: 1024px;
-    padding-left: 71px;
-    padding-right: 71px;
+    max-width: 1024px;
   }
 }
+
+.home-container {
+  padding-top: 46px;
+  padding-bottom: 97px;
+
+  height: auto;
+  @media screen and (min-width: 769px) {
+    padding-top: 41px;
+  }
+}
+
 .header-box {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
 }
+
 .logo {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   font-weight: 500;
   font-size: 30px;
   line-height: 1.17;
 
-  color: #ffffff;
+  color: $main-white-color;
+}
+
+.logo-text {
   margin-left: 10px;
-}
-
-.logo-box {
-  display: flex;
-  align-items: center;
-}
-
-.search-input {
-  margin-bottom: 0;
-  width: 336px;
-  height: 20px;
-  margin-top: 37px;
-  display: flex;
-  margin-left: auto;
-  margin-right: auto;
-
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.561);
-  outline: none;
-
-  &::placeholder {
-    font-size: 14px;
-    line-height: 1.14;
-    color: #ffffff;
-  }
-}
-
-.link {
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 1.17;
-  letter-spacing: 0.02em;
-  color: #ffffff;
-  text-transform: uppercase;
-}
-
-// base
-a {
-  text-decoration: none;
-}
-
-ul,
-li,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0;
-  padding: 0;
 }
 
 nav {
@@ -190,15 +122,19 @@ nav {
   align-items: flex-end;
 }
 
-nav .link {
+.nav-list {
+  display: flex;
+}
+
+nav .nav-item {
   position: relative;
 }
 
-nav .link:not(:last-child) {
+nav .nav-item:not(:last-child) {
   margin-right: 39px;
 }
 
-nav .link::after {
+nav .nav-item::after {
   position: absolute;
   bottom: -2px;
   border-radius: 3px;
@@ -207,74 +143,134 @@ nav .link::after {
   width: 100%;
   height: 4px;
   opacity: 0;
-  background-color: #ff6b08;
-  // transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: $accent-color;
 }
 
-nav .link.current::after {
+nav .item-home.current::after {
   opacity: 1;
 }
 
-.link:hover::after,
-.link:focus::after {
+.nav-item:hover::after,
+.nav-item:focus::after {
   opacity: 1;
+}
+
+.link {
+  font-size: $sec-font-size;
+  font-weight: $sec-font-weight;
+  line-height: $sec-line-height;
+  letter-spacing: 0.02em;
+  color: $main-white-color;
+  text-transform: uppercase;
 }
 
 .form-container {
   position: relative;
-}
-.search-icon {
-  position: absolute;
-  top: 4px;
-  right: 272px;
+  width: 100%;
+  margin-top: 37px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (min-width: 768px) {
+    width: 336px;
+  }
 }
 
-@media screen and (min-width: 321px) and (max-width: 767px) {
-  .logo {
+.search-input {
+  width: 100%;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background-color: transparent;
+  outline: none;
+  color: #ffffff;
+
+  &::placeholder {
+    color: #fff;
+  }
+}
+
+.search-icon {
+  position: absolute;
+  bottom: 6px;
+  right: 0;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .logo-text {
     display: none;
   }
   .search-input {
-    // width: 280px;
     width: 100%;
-  }
-  .search-icon {
-    position: absolute;
-    top: 4px;
-    right: 1px;
-  }
-}
-
-@media screen and (min-width: 766px) and (max-width: 1023px) {
-  .search-icon {
-    position: absolute;
-    top: 4px;
-    right: 141px;
   }
 }
 
 // library
-
-.button-container {
-  display: flex;
-  // align-items: center;
-  justify-content: center;
-  margin-top: 45px;
-}
-
 .library-container {
-  max-width: 1024px;
-
   padding-top: 41px;
   padding-bottom: 65px;
 
   height: auto;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-.button-container .button:not(:last-child) {
-  margin-right: 15px;
-  @media screen and (min-width: 320px) and (max-width: 767px) {
-    margin-right: 20px;
+.header-button-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 45px;
+}
+
+.header-button-list .header-button-item:not(:last-child) {
+  margin-right: 20px;
+
+  @media screen and (min-width: 768px) {
+    margin-right: 15px;
   }
 }
+
+.button-tpl {
+  width: 130px;
+  @media screen and (min-width: 768px) {
+    width: 136px;
+  }
+}
+
+// #2
+// .nav-link.disabled {
+//   pointer-events: none;
+// }
+
+nav .item-library.current::after {
+  opacity: 1;
+}
+
+// удалить позже, когда точно решим с кнопками
+// .btn-transparent {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   height: 44px;
+//   text-transform: uppercase;
+//   cursor: pointer;
+
+//   background-color: transparent;
+//   color: $main-white-color;
+
+//   border: 2px solid $main-white-color;
+//   border-radius: 5px;
+
+//   font-size: $sec-font-size;
+//   font-weight: $sec-font-weight;
+//   line-height: $sec-line-height;
+
+//   &:hover,
+//   &:focus {
+//     background-color: $accent-color;
+//     color: $main-white-color;
+//     border-color: transparent;
+//     border-radius: 5px;
+//     box-shadow: (0px 8px 43px rgba(255, 107, 1, 0.6));
+//   }
+
+//   @include transition(box-shadow);
+// }
