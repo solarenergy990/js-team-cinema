@@ -60,7 +60,6 @@ img {
 }
 .gallery {
   display: grid;
-  outline: 1px solid tomato;
 }
 @media screen and (min-width: 768px) {
   .gallery {
@@ -93,9 +92,9 @@ img {
   font-size: 12;
   margin-top: 10px;
 }
-.gallery-item-card {
-  outline: 1px solid tomato;
-}
+// .gallery-item-card {
+// }
+
 .text-ganre {
   margin-top: 7px;
   font-weight: 500;
