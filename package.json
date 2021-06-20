@@ -1,31 +1,31 @@
 {
-  "name": "parcel-project-template",
+  "name": "js-final-project",
   "version": "1.1.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://solarenergy990.github.io/js-team-cinema",
+  "homepage": "https://goitacademy.github.io/js-final-project",
   "scripts": {
     "dev": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /js-team-cinema/"
+    "build": "parcel build src/*.html --public-url /js-final-project/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/solarenergy990/js-team-cinema.git"
+    "url": "git+https://github.com/goitacademy/js-final-project.git"
   },
   "keywords": [],
-  "author": "Alexander Repeta <alexander.repeta@gmail.com>",
+  "author": "Volodymyr Bliakhar <vovabliahar@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/goitacademy/parcel-project-template/issues"
+    "url": "https://github.com/goitacademy/js-final-project/issues"
   },
   "devDependencies": {
-    "gh-pages": "^3.2.1",
     "parcel-bundler": "^1.12.5",
     "parcel-plugin-handlebars-precompile": "^1.0.2",
+    "parcel-plugin-nuke-dist": "^1.0.1",
     "posthtml-include": "^1.6.2",
     "sass": "^1.32.8"
   },
   "dependencies": {
-    "modern-normalize": "^1.1.0"
+    "axios": "^0.21.1"
   }
 }
