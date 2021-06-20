@@ -1,7 +1,7 @@
-<div class='library-bgc-container'>
-  <div class='container library-container'>
+{{!-- <div class='library-bgc-container'>
+  <div class='container main-container library-container'>
     <div class='header-box'>
-      <div class='logo-box'>
+      <a href='' class='logo'>
         <svg class='logo-icon' width='24' height='24' viewBox='0 0 32 32'>
           {{! <use href='/images/symbol-defs.svg#icon-film'></use> }}
           <path
@@ -85,17 +85,33 @@
           ></path>
 
         </svg>
-        <a href='' class='logo'><span class='logo-text'>Filmoteka</span></a>
-      </div>
+        <span class='logo-text'>Filmoteka</span>
+      </a>
       <nav>
-        <!-- current -->
-        <a href='./index.html' class='link'>Home</a>
-        <a class='link js-library'>my library</a>
+        <ul class='nav-list'>
+          <li class='nav-item item-home'><a href='./index.html' class='link js-home'>Home</a></li>
+          {{! при нажатии отрисовывается шаблон }}
+          <li class='nav-item item-library current'><a href='/' class='link js-library'>my library</a></li>
+        </ul>
       </nav>
     </div>
-    <div class='button-container'>
-      <button class='button watched'>Watched</button>
-      <button class='button qweqwe'>queue</button>
-    </div>
+    <ul class='header-button-list'>
+      <li class='header-button-item'><button class='button-tpl button-orange'>Watched</button></li>
+      <li class='header-button-item'><button
+          class='button-tpl button-transparent'
+        >queue</button></li>
+    </ul>
   </div>
-</div>
+</div> --}}
+
+{{! #2 }}
+<ul class='header-button-list js-header-btn'>
+  <li class='header-button-item'><button
+      class='button button-tpl js-watched-btn'
+      id='Watched'
+    >Watched</button></li>
+  <li class='header-button-item'><button
+      class='button button-tpl js-watched-que'
+      id='que'
+    >queue</button></li>
+</ul>
