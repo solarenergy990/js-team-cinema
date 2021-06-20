@@ -4,6 +4,8 @@ import './sass/main.scss';
 import './js/header';
 // import './js/gallery';
 import './js/renderMovie';
+import './js/modal';
 import './js/pagination';
 import './js/auth';
+
 
