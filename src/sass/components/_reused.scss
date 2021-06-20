@@ -18,7 +18,7 @@
   }
 }
 
-.button-orange {
+.button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,37 +26,8 @@
   text-transform: uppercase;
   cursor: pointer;
 
-  background-color: $accent-color;
   color: $main-white-color;
-  border-color: transparent;
-  border-radius: 5px;
-
-  font-size: $sec-font-size;
-  font-weight: $sec-font-weight;
-  line-height: $sec-line-height;
-
-  &:hover,
-  &:focus {
-    box-shadow: (0px 8px 43px rgba(255, 107, 1, 0.6));
-  }
-
-  @include transition(box-shadow) //   transition-property: box-shadow;
-    //   transition-duration: $animation-duration;
-    //   transition-timing-function: $animation-timing-function;
-;
-}
-
-.button-transparent {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 44px;
-  text-transform: uppercase;
-  cursor: pointer;
-
   background-color: transparent;
-  color: $main-white-color;
-
   border: 2px solid $main-white-color;
   border-radius: 5px;
 
@@ -67,7 +38,14 @@
   &:hover,
   &:focus {
     box-shadow: (0px 8px 43px rgba(255, 107, 1, 0.6));
+    background-color: $accent-color;
+    border-color: transparent;
   }
 
-  @include transition(box-shadow);
+  @include transition(box-shadow, background-color);
+}
+
+.button-orange {
+  background-color: $accent-color;
+  border-color: transparent;
 }
