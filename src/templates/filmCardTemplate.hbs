@@ -1,8 +1,26 @@
-<li>
+{{!-- <li>
   <div data-id='{{id}}'>
     <img src='{{poster_path}}' alt='' data-source='{{backdrop_path}}' />
     <h2>{{title}}</h2>
     <p>{{genre_ids}}</p>
     <p>{{release_date}}</p>
+  </div>
+</li> --}}
+
+<li class='gallery-item-card' data-id='{{id}}'>
+  <div class='poster-container'>
+    <img
+      class='poster'
+      src='https://image.tmdb.org/t/p/w500{{poster_path}}'
+      data-source='https://image.tmdb.org/t/p/w500{{backdrop_path}}'
+      alt='Poster-film'
+    />
+  </div>
+  <div class='text-container'>
+    <h2 class='text-title'>{{title}}</h2>
+    <div class='text-details'>
+      <p class='text-ganre'>{{genre_ids}} | {{release_date}}</p>
+      <p class='text-rating'>{{vote_average}}</p>
+    </div>
   </div>
 </li>
