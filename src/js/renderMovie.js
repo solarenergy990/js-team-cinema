@@ -7,7 +7,7 @@ const renderImg = movies => {
   //   const id = movies.results.map(movies => movies.genre_ids);
   const markup = movies.results
     .map(movies => {
-      console.log(movies.genre_ids);
+      // console.log(movies.genre_ids);
       filmCardTemplate(movies);
     })
     .join('');
