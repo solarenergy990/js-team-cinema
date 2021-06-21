@@ -6,6 +6,7 @@ const refs = {
 const GENRES = [];
 const movieSearch = new MovieSearch();
 
+
 const renderMovie = async movies => {
   const films = movies.results;
   const genres = await movieSearch.fetchGenresMovie();
