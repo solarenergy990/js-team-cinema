@@ -6,13 +6,18 @@ const refs = {
 const GENRES = [];
 const movieSearch = new MovieSearch();
 
-const renderImg = movies => {
+const renderMovie = async movies => {
+  const films = movies.results;
+  const genres = await movieSearch.fetchGenresMovie();
+  films.map(film => {
+    film.release_date = film.release_date.slice(0, 4);
+  });
+  films.map(film => {
+    film.genre_ids = film.genre_ids.map(
+      idSearch => ` ` + genres.find(genre => genre.id === idSearch).name,
+    );
+  });
 
-  const markupMovie = movies.results.map(movies => filmCardTemplate(movies)).join('');
-
-
-  refs.filmGallery.insertAdjacentHTML('beforeend', markupMovie);
+  refs.filmGallery.insertAdjacentHTML('beforeend', filmCardTemplate(films));
 };
-const genres = movieSearch.fetchGenresMovie().then(genre => GENRES.push(...genre.genres));
-console.log(GENRES);
-const movie = movieSearch.fetchPopularMovie().then(renderImg);
+const movie = movieSearch.fetchPopularMovie().then(renderMovie);
