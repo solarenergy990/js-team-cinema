@@ -6,21 +6,22 @@
     <p>{{release_date}}</p>
   </div>
 </li> --}}
-
-<li class='gallery-item-card' data-id='{{id}}'>
-  <div class='poster-container'>
-    <img
-      class='poster'
-      src='https://image.tmdb.org/t/p/w500{{poster_path}}'
-      data-source='https://image.tmdb.org/t/p/w500{{backdrop_path}}'
-      alt='Poster-film'
-    />
-  </div>
-  <div class='text-container'>
-    <h2 class='text-title'>{{title}}</h2>
-    <div class='text-details'>
-      <p class='text-ganre'>{{genre_ids}} | {{release_date}}</p>
-      <p class='text-rating'>{{vote_average}}</p>
+{{#each this}}
+  <li class='gallery-item-card' data-id='{{this.id}}'>
+    <div class='poster-container'>
+      <img
+        class='poster'
+        src='https://image.tmdb.org/t/p/w500{{this.poster_path}}'
+        data-source='https://image.tmdb.org/t/p/w500{{this.backdrop_path}}'
+        alt='Poster-film'
+      />
     </div>
-  </div>
-</li>
+    <div class='text-container'>
+      <h2 class='text-title'>{{this.title}}</h2>
+      <div class='text-details'>
+        <p class='text-ganre'>{{this.genre_ids}} | {{this.release_date}}</p>
+        <p class='text-rating is-hidden'>{{this.vote_average}}</p>
+      </div>
+    </div>
+  </li>
+{{/each}}
