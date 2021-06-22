@@ -47,6 +47,7 @@ function closeModal() {
 function onBackdropClick(event) {
   if (event.currentTarget === event.target) {
     closeModal();
+  };
 };
 
 function onKeyPress(event) {
