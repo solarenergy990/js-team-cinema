@@ -8,5 +8,7 @@ export default function getRefs() {
     modalSingIn: document.querySelector('.formRegistr'),
     header: document.querySelector('.page-header'),
     scrollToTop: document.querySelector('#scrollTop'),
+    filmGallery: document.querySelector('.gallery'),
+    searchFilm: document.querySelector('.form-container'),
   };
 }
