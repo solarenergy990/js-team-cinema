@@ -89,7 +89,7 @@ function addWatchedById() {
 }
 
 function addQueueById() {
-  refs.containerWatchedFilms.innerHTML = '';
+  //   refs.containerWatchedFilms.innerHTML = '';
   db.collection('queue').add({
     id: '123456',
     poster_path: 'https://image.tmdb.org/t/p/w500/lPsD10PP4rgUGiGR4CCXA6iY0QQ.jpg',
