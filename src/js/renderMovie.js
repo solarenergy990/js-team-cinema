@@ -6,9 +6,9 @@ const refs = {
 const GENRES = [];
 const movieSearch = new MovieSearch();
 
-
 const renderMovie = async movies => {
   const films = movies.results;
+  console.log(films);
   const genres = await movieSearch.fetchGenresMovie();
   films.map(film => {
     film.release_date = film.release_date.slice(0, 4);
