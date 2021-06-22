@@ -1,5 +1,7 @@
 import libraryHeaderTpl from '../templates/libraryHeaderTpl.hbs';
+import { chooseRefs } from './libraryBtnRefs';
 const libraryPage = document.querySelector('.js-library');
+
 // const pageHeader = document.querySelector('.page-header');
 
 // function onLibraryPageClick(e) {
@@ -27,10 +29,12 @@ function onLibraryPageClick(e) {
     return;
   }
   formContainer.remove();
-  homeContainer.insertAdjacentHTML('beforeend', libraryHeaderTpl());
-  // navLink.classList.add('disabled');
+  const libraryHeaderMarkUp = homeContainer.insertAdjacentHTML('beforeend', libraryHeaderTpl());
   itemHome.classList.remove('current');
   itemLibrary.classList.add('current');
+  const btnRefs = chooseRefs();
+  btnRefs.watchedBtn.addEventListener('click', e => console.log(e));
+  // navLink.classList.add('disabled');
 }
 
 libraryPage.addEventListener('click', onLibraryPageClick);
