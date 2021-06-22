@@ -1,5 +1,10 @@
 import libraryHeaderTpl from '../templates/libraryHeaderTpl.hbs';
 const libraryPage = document.querySelector('.js-library');
+
+// const signIn = document.querySelector('[data-action="registerIn"]');
+// const headerBtnSignIn = document.querySelector('[data-action="Sind-In"]');
+// const headerBtnSignUp = document.querySelector('[data-action="registerUp"]');
+
 // const pageHeader = document.querySelector('.page-header');
 
 // function onLibraryPageClick(e) {
@@ -33,4 +38,15 @@ function onLibraryPageClick(e) {
   itemLibrary.classList.add('current');
 }
 
+// function onSignInBtnClick(e) {
+//   libraryPage.classList.remove('visually-hidden');
+//   headerBtnSignIn.classList.add('visually-hidden');
+// }
+// function onSignUpBtnClick(e) {
+//   libraryPage.classList.remove('visually-hidden');
+//   headerBtnSignIn.classList.add('visually-hidden');
+// }
+
 libraryPage.addEventListener('click', onLibraryPageClick);
+// signIn.addEventListener('click', onSignInBtnClick);
+// headerBtnSignUp.addEventListener('click', onSignUpBtnClick);
