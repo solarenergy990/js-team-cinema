@@ -3,20 +3,20 @@
   "version": "1.1.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://goitacademy.github.io/js-final-project",
+  "homepage": "https://goitacademy.github.io/js-team-cinema",
   "scripts": {
     "dev": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /js-final-project/"
+    "build": "parcel build src/*.html --public-url /js-team-cinema/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/goitacademy/js-final-project.git"
+    "url": "git+https://github.com/goitacademy/js-team-cinema.git"
   },
   "keywords": [],
   "author": "Volodymyr Bliakhar <vovabliahar@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/goitacademy/js-final-project/issues"
+    "url": "https://github.com/goitacademy/js-team-cinema/issues"
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.5",
