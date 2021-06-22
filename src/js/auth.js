@@ -12,11 +12,11 @@ refs.btnRegisterIn.addEventListener('click', loginHendler);
 refs.modalBtn.addEventListener('click', addModal);
 
 function addModal() {
-  refs.modalSingIn.classList.add('is-hidden');
+  refs.modalSingIn.classList.add('is-hidden-register');
 }
 
 function removeModal() {
-  refs.modalSingIn.classList.remove('is-hidden');
+  refs.modalSingIn.classList.remove('is-hidden-register');
 }
 
 // function getEmail(e) {

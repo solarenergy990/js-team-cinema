@@ -1,0 +1,21 @@
+.addFilmWatched {
+  border: solid 2px black;
+  padding: 20px;
+  width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+  li {
+    list-style-type: none;
+  }
+}
+
+.addFilmQueue {
+  border: solid 2px black;
+  padding: 20px;
+  width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+  li {
+    list-style-type: none;
+  }
+}
