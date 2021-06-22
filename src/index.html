@@ -1,32 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filmoteka</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+      integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Filmoteka</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
-    integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
-    crossorigin="anonymous" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
-</head>
+  <body>
+    <!-- partials included by teammates according to the place they must be -->
 
-<body>
-  <!-- partials included by teammates according to the place they must be -->
+    <include src="./partials/header.html"></include>
+    <main>
+      <include src="./partials/gallery.html"></include>
+      <include src="./partials/pagination.html"></include>
+      <include src="./partials/modal.html"></include>
+      <!-- <include src="./partials/modalRegist.html"></include> -->
+    </main>
+    <include src="./partials/footer.html"></include>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
 
-  <include src="./partials/header.html"></include>
-  <main>
-    <include src="./partials/gallery.html"></include>
-    <include src="./partials/pagination.html"></include>
-    <include src="./partials/modal.html"></include>
-    <include src="./partials/modalRegist.html"></include>
-  </main>
-  <include src="./partials/footer.html"></include>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
 
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: 'AIzaSyAY117Vq2U0EBD0gCvjldU0m1QtGVSMetY',
+        authDomain: 'filmoteka-6fa0c.firebaseapp.com',
+        databaseURL: 'https://filmoteka-6fa0c-default-rtdb.europe-west1.firebasedatabase.app',
+        projectId: 'filmoteka-6fa0c',
+        storageBucket: 'filmoteka-6fa0c.appspot.com',
+        messagingSenderId: '953286650398',
+        appId: '1:953286650398:web:8beb2ec47627e38f929c0f',
+        measurementId: 'G-843J8GB9XT',
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+      const db = firebase.firestore();
+    </script>
 
-  <script src="./index.js"></script>
-</body>
-
+    <script src="./index.js"></script>
+  </body>
 </html>
-
