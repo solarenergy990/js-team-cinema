@@ -9,3 +9,4 @@ import './js/pagination';
 // import './js/auth';
 import './js/theme';
 import './js/engine';
+import './js/to-top';
