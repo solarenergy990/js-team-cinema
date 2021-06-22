@@ -6,5 +6,7 @@ export default function getRefs() {
     btnRegisterUp: document.querySelector('[data-action="registerUp"]'),
     modalBtn: document.querySelector('[data-action="Sind-In"]'),
     modalSingIn: document.querySelector('.formRegistr'),
+    filmGallery: document.querySelector('.gallery'),
+    searchFilm: document.querySelector('.form-container'),
   };
 }
