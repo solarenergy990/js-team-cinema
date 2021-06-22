@@ -56,18 +56,29 @@ body.modal-open {
     }
   }
 
+  .modal-picture-container img {
+    width: 100%;
+  }
+
   .modal-picture-container {
     max-width: 240px;
+    height: 356px;
     margin-bottom: 30px;
-
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
     @media screen and (min-width: 768px) {
       max-width: 264px;
+      height: 373px;
       margin-right: 32px;
       margin-bottom: 0;
     }
 
     @media screen and (min-width: 1024px) {
       max-width: 396px;
+      height: 477px;
       margin-right: 30px;
     }
   }
