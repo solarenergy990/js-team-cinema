@@ -2,7 +2,7 @@ const API_KEY = '5a9486e7363af1432b87b7a7303a7852';
 
 export default class MovieSearch {
   constructor() {
-    this.page = 2;
+    this.page = 1;
     this.query = '';
   }
   fetchPopularMovie() {
