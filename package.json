@@ -6,17 +6,19 @@
   "homepage": "https://goitacademy.github.io/js-team-cinema",
   "scripts": {
     "dev": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /js-team-cinema/"
+    "build": "parcel build src/*.html",
+    "predeploy": "npm run build -- --public-url /js-team-cinema/",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/goitacademy/js-team-cinema.git"
+    "url": "git+https://github.com/goitacademy/parcel-project-template.git"
   },
   "keywords": [],
   "author": "Volodymyr Bliakhar <vovabliahar@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/goitacademy/js-team-cinema/issues"
+    "url": "https://github.com/goitacademy/parcel-project-template/issues"
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.5",
