@@ -2,9 +2,11 @@ import MovieSearch from './apiService.js';
 import filmCardTemplate from '../templates/filmCardTemplate.hbs';
 import getRefs from './getRefs.js';
 
+
 const refs = getRefs();
 
 const movieSearch = new MovieSearch();
+
 
 const renderMovie = async movies => {
   const films = movies.results;
