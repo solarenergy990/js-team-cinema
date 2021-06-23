@@ -7,11 +7,11 @@ export default class Spinner {
     return document.querySelector('.spinner');
   }
 
-  enable() {
+  disable() {
     this.ref.classList.add('visually-hidden');
   }
 
-  disable() {
+  enable() {
     this.ref.classList.remove('visually-hidden');
   }
 }
