@@ -56,18 +56,30 @@ body.modal-open {
     }
   }
 
+  .modal-picture-container img {
+    width: 100%;
+  }
+
   .modal-picture-container {
     max-width: 240px;
+    height: 356px;
     margin-bottom: 30px;
-
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    
     @media screen and (min-width: 768px) {
       max-width: 264px;
+      height: 373px;
       margin-right: 32px;
       margin-bottom: 0;
     }
 
     @media screen and (min-width: 1024px) {
       max-width: 396px;
+      height: 477px;
       margin-right: 30px;
     }
   }
@@ -111,8 +123,6 @@ body.modal-open {
   }
 
   .modal-movie-title {
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     color: #000000;
     font-size: 20px;
@@ -151,8 +161,6 @@ body.modal-open {
   }
 
   .info-description {
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 12px;
     line-height: 1.33;
@@ -163,18 +171,32 @@ body.modal-open {
   }
 
   .info-content {
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 12px;
     line-height: 1.16;
     flex: 1.5;
   }
 
+  .modal-vote-average {
+    color: #FFFFFF;
+    text-transform: uppercase;
+    padding: 1px 10px;
+    background: #FF6B01;
+    border-radius: 5px;
+    margin-right: 3px;
+  }
+
+  .modal-vote-count {
+    text-transform: uppercase;
+    margin-left: 3px;
+  }
+
+  .modal-original-title {
+    text-transform: uppercase;
+  }
+
   .modal-movie-about-title {
     margin-bottom: 10px;
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 12px;
     line-height: 1.33;
@@ -183,8 +205,6 @@ body.modal-open {
   }
 
   .modal-movie-description {
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 12px;
     line-height: 1.67;
@@ -193,18 +213,9 @@ body.modal-open {
   }
 
   .modal-button {
-    background-color: #FF6B01;
     padding: 0 8px;
-    font-family: Roboto;
-    text-align: center;
-    color: #FFFFFF;
     border: none;
-    cursor: pointer;
     width: 113px;
-    height: 44px;
-    border-radius: 5px;
-    font-weight: 500;
-    font-size: 12px;
     line-height: 1.33;
     text-transform: uppercase;
 
@@ -220,12 +231,11 @@ body.modal-open {
   .modal-right-button {
     border: 1px solid #000000;
     color: #000000;
-    background: #ffffff;
 
     &:hover {
       background-color: #FF6B01;
       color: #FFFFFF;
-      border: 2px solid #000000;
+      border: 1px solid #000000;
     }
   }
 
@@ -235,7 +245,7 @@ body.modal-open {
     &:hover {
       background-color: #ffffff;
       color: #000000;
-      border: 2px solid #000000;
+      border: 1px solid #000000;
     }
   }
 

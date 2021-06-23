@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Filmoteka</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon/favicon-16x16.png">
+    <link rel="mask-icon" href="./images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
@@ -26,10 +32,35 @@
       <include src="./partials/gallery.html"></include>
       <include src="./partials/pagination.html"></include>
       <include src="./partials/modal.html"></include>
-      <include src="./partials/modalRegist.html"></include>
+      <!-- <include src="./partials/modalRegist.html"></include> -->
     </main>
     <include src="./partials/footer.html"></include>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
 
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: 'AIzaSyAY117Vq2U0EBD0gCvjldU0m1QtGVSMetY',
+        authDomain: 'filmoteka-6fa0c.firebaseapp.com',
+        databaseURL: 'https://filmoteka-6fa0c-default-rtdb.europe-west1.firebasedatabase.app',
+        projectId: 'filmoteka-6fa0c',
+        storageBucket: 'filmoteka-6fa0c.appspot.com',
+        messagingSenderId: '953286650398',
+        appId: '1:953286650398:web:8beb2ec47627e38f929c0f',
+        measurementId: 'G-843J8GB9XT',
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+      const db = firebase.firestore();
+    </script>
     <script src="./index.js"></script>
   </body>
 </html>

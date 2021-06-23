@@ -1,57 +1,11 @@
-<div class="backdrop backdrop-hidden" data-modal>
+<div class="backdrop backdrop-hidden backdrop-movie-card" data-modal>
   <div class="modal">
     <button class="close-button" type="button" data-modal-close>
       <svg height="30" width="30">
         <use href="././images/symbol-defs.svg#icon-close-modal"></use>
       </svg>
     </button>
-    <div class="modal-movie-container">
-      <div class="modal-picture-container">
-        <picture>
-          <source
-            srcset="././images/modal/poster-mobile.jpg 1x,
-                    ././images/modal/poster-mobile@2x.jpg 2x" 
-            media="(max-width: 767px)" 
-            type="image/jpg"
-          >
-          <source
-            srcset="././images/modal/poster-desktop.jpg 1x,
-                    ././images/modal/poster-desktop@2x.jpg 2x" 
-            media="(min-width: 1024px)" 
-            type="image/jpg"
-          >
-          <source
-            srcset="././images/modal/poster-tablet.jpg 1x,
-                    ././images/modal/poster-tablet@2x.jpg 2x" 
-            media="(min-width: 768px)" 
-            type="image/jpg"
-          >
-          <img 
-            class="modal-picture" 
-            src="././images/modal/poster-mobile.jpg"
-            alt="Poster"
-          />
-        </picture>
-      </div>
-      <div class="modal-movie-info">
-        <h2 class="modal-movie-title">A FISTFUL OF LEAD</h2>
-          <ull class="list modal-info-list">
-            <li class="info-list-item"><span class="info-description">Vote / Votes</span><span class="info-content"><span>7.3</span><span>/</span><span>1260</span></span></li>
-            <li class="info-list-item"><span class="info-description">Popularity</span><span class="info-content">100.2</span></li>
-            <li class="info-list-item"><span class="info-description">Original Title</span><span class="info-content">A FISTFUL OF LEAD</span></li>
-            <li class="info-list-item"><span class="info-description">Genre</span><span class="info-content">Western</span></li>
-          </ull>
-        <h3 class="modal-movie-about-title">About</h3>
-        <p class="modal-movie-description">Four of the West’s most infamous outlaws assemble to steal a huge stash of gold from the most corrupt settlement of the gold rush towns. But not all goes to plan one is killed and the other three escapes with bags of gold hide out in the abandoned gold mine where they happen across another gang of three – who themselves were planning to hit the very same bank! As tensions rise, things go from bad to worse as they realise the bags of gold are filled with lead... they’ve been double crossed – but by who and how?</p>
-        <div class="modal-buttons">
-        <button class="modal-button modal-left-button" type="button" data-modal-add-to-watched>
-          add to Watched
-        </button>
-        <button class="modal-button modal-right-button" type="button" data-modal-add-to-queue>
-          add to queue
-        </button>
-      </div>
-      </div>
+    <div class="movie-card">
     </div>
   </div>
 </div>
