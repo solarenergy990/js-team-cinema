@@ -31,7 +31,7 @@ export default class MovieSearch {
     });
   }
 
-  fetchDetailsMovie() {
+  fetchDetailsMovie(movie_id) {
     return fetch(
       `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${API_KEY}&language=en-US`,
     ).then(response => {
