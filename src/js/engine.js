@@ -49,8 +49,10 @@ const renderWatched = doc => {
 
 //get watched films
 
+
 refs.btnWatched.addEventListener('click', addWatchedById);
 refs.btnQueue.addEventListener('click', addQueueById);
+
 refs.btnMyLibrary.addEventListener('click', () => {
   refs.containerWatchedFilms.innerHTML = ' ';
 });

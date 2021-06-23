@@ -2,7 +2,7 @@ const API_KEY = '5a9486e7363af1432b87b7a7303a7852';
 
 export default class MovieSearch {
   constructor() {
-    this.page = 1;
+    this.page = 2;
     this.query = '';
   }
   fetchPopularMovie() {
@@ -31,7 +31,7 @@ export default class MovieSearch {
     });
   }
 
-  fetchDetailsMovie() {
+  fetchDetailsMovie(movie_id) {
     return fetch(
       `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${API_KEY}&language=en-US`,
     ).then(response => {
@@ -51,7 +51,7 @@ export default class MovieSearch {
   }
 
   resetPage() {
-    this.page = 1;
+    this.page = 2;
     // console.log(page);
   }
 }
