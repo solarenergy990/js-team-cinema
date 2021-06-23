@@ -10,7 +10,8 @@ const renderMovie = async movies => {
   const films = movies.results;
   const genres = await movieSearch.fetchGenresMovie();
   films.map(film => {
-    film.release_date = film.release_date.slice(0, 4);
+    // film.release_date = film.release_date.slice(0, 4);
+    film.release_date = film.release_date;
   });
   films.map(film => {
     film.genre_ids = film.genre_ids.map(
