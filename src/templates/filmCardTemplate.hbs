@@ -10,15 +10,23 @@
   <li class='gallery-item-card' data-id='{{this.id}}'>
     <div class='card'>
       <div class='poster-container'>
-        <img
-          class='poster'
-          data-source='https://image.tmdb.org/t/p/w500{{this.backdrop_path}}'
-          alt='Poster-film'
-          src='https://image.tmdb.org/t/p/w500{{this.poster_path}}'
-        />
+        {{#if poster_path}}
+          <img
+            class='poster'
+            data-source='https://image.tmdb.org/t/p/w500{{this.backdrop_path}}'
+            alt='{{this.title}}'
+            src='https://image.tmdb.org/t/p/w500{{this.poster_path}}'
+          />
+        {{else}}
+          <img
+            src='https://cdn.pixabay.com/photo/2015/09/09/17/51/film-932154_960_720.jpg'
+            alt='{{original_title}}'
+          />
+
+        {{/if}}
       </div>
       <div class='text-container'>
-        <h2 class='text-title'>{{this.title}}</h2>
+        <h2 class='text-title'>{{this.original_title}}</h2>
         <div class='text-details'>
           <p class='text-ganre'>{{this.genre_ids}} | {{this.release_date}}</p>
           <p class='text-rating is-hidden'>{{this.vote_average}}</p>
