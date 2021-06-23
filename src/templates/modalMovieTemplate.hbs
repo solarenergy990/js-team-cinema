@@ -1,29 +1,47 @@
-<div class="modal-movie-container" data-id={{id}}>
-<div class="modal-picture-container">
-  <img 
-    class="modal-picture" 
-    src='https://image.tmdb.org/t/p/w500{{poster_path}}'
-    data-source='https://image.tmdb.org/t/p/w500{{backdrop_path}}'
-    alt="Poster"
-  />
-</div>
-<div class="modal-movie-info">
-  <h2 class="modal-movie-title">{{this.title}}</h2>
-    <ull class="list modal-info-list">
-      <li class="info-list-item"><span class="info-description">Vote / Votes</span><span class="info-content"><span class="modal-vote-average">{{vote_average}}</span><span class="info-description">/</span><span class="modal-vote-count">{{vote_count}}</span></span></li>
-      <li class="info-list-item"><span class="info-description">Popularity</span><span class="info-content">{{popularity}}</span></li>
-      <li class="info-list-item"><span class="info-description">Original Title</span><span class="info-content modal-original-title">{{original_title}}</span></li>
-      <li class="info-list-item"><span class="info-description">Genre</span><span class="info-content">{{genres}}</span></li>
-    </ull>
-  <h3 class="modal-movie-about-title">About</h3>
-  <p class="modal-movie-description">{{overview}}</p>
-  <div class="modal-buttons">
-    <button class="button button-orange modal-button modal-left-button" type="button" data-action="add-to-watched">
-      add to Watched
-    </button>
-    <button class="button modal-button modal-right-button" type="button" data-action="add-to-queue">
-      add to queue
-    </button>
+<div class='modal-movie-container' data-id={{id}}>
+  <div class='modal-picture-container'>
+    <img
+      class='modal-picture'
+      src='https://image.tmdb.org/t/p/w500{{poster_path}}'
+      data-source='https://image.tmdb.org/t/p/w500{{backdrop_path}}'
+      alt='Poster'
+    />
   </div>
-</div>
+  <div class='modal-movie-info'>
+    <h2 class='modal-movie-title'>{{this.title}}</h2>
+    <ull class='list modal-info-list'>
+      <li class='info-list-item'><span class='info-description'>Vote / Votes</span><span
+          class='info-content'
+        ><span class='modal-vote-average'>{{vote_average}}</span><span
+            class='info-description'
+          >/</span><span class='modal-vote-count'>{{vote_count}}</span></span></li>
+      <li class='info-list-item'><span class='info-description'>Popularity</span><span
+          class='info-content'
+        >{{popularity}}</span></li>
+      <li class='info-list-item'><span class='info-description'>Original Title</span><span
+          class='info-content modal-original-title'
+        >{{original_title}}</span></li>
+      <li class='info-list-item'><span class='info-description'>Genre</span><span
+          class='info-content'
+        >{{genres}}</span></li>
+    </ull>
+    <h3 class='modal-movie-about-title'>About</h3>
+    <p class='modal-movie-description'>{{overview}}</p>
+    <div class='modal-buttons'>
+      <button
+        class='button button-orange modal-button modal-left-button'
+        type='button'
+        data-action='add-to-watched'
+      >
+        add to Watched
+      </button>
+      <button
+        class='button modal-button modal-right-button'
+        type='button'
+        data-action='add-to-queue'
+      >
+        add to queue
+      </button>
+    </div>
+  </div>
 </div>
