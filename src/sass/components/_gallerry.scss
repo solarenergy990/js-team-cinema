@@ -42,14 +42,14 @@ img {
   padding-bottom: 40px;
 
   @media screen and (min-width: 768px) {
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: 45px;
+    padding-bottom: 35px;
   }
 }
 
 .main-container {
   width: 320px;
-  padding: 10px;
+  // padding: 10px;
   margin-right: auto;
   margin-left: auto;
   align-content: center;
@@ -57,7 +57,7 @@ img {
 @media screen and (min-width: 768px) {
   .main-container {
     width: 768px;
-    padding: 40px 60px;
+    padding: 0px 60px;
   }
 }
 @media screen and (min-width: 1024px) {
@@ -73,7 +73,7 @@ img {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    margin: -15px;
+    // margin: -15px;
   }
 }
 .gallery-item-card {

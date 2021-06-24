@@ -1,5 +1,9 @@
 .pagination {
   padding-bottom: 40px;
+
+  @media screen and (min-width: 768px) {
+    padding-bottom: 60px;
+  }
 }
 .pagination-list {
   display: flex;
