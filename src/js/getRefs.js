@@ -18,6 +18,5 @@ export default function getRefs() {
     scrollToTop: document.querySelector('#scrollTop'),
     filmGallery: document.querySelector('.gallery'),
     searchFilm: document.querySelector('.form-container'),
-
   };
 }

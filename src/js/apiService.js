@@ -5,26 +5,26 @@ export default class MovieSearch {
     this.page = 1;
     this.query = '';
   }
-  fetchPopularMovie() {
+  fetchTrendingMovie() {
     return fetch(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=${this.page}`,
+      `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}&language=en-US&page=${this.page}`,
     ).then(response => {
       if (response.ok) {
         // console.log(page);
-        this.page += 1;
+        // this.page += 1;
         return response.json();
       }
       throw new Error('Error fetching data');
     });
   }
 
-  fetchMovieSearch() {
+  fetchMovieSearch(page) {
     return fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${this.query}`,
+      `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${this.query}&page=${page}`,
     ).then(response => {
       if (response.ok) {
         // console.log(page);
-        this.page += 1;
+        // this.page += 1;
         return response.json();
       }
       throw new Error('Error fetching data');
@@ -37,7 +37,7 @@ export default class MovieSearch {
     ).then(response => {
       if (response.ok) {
         // console.log(page);
-        this.page += 1;
+        // this.page += 1;
         return response.json();
       }
       throw new Error('Error fetching data');

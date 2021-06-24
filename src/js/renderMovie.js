@@ -11,9 +11,10 @@ const spinner = new Spinner({
 const movieSearch = new MovieSearch();
 
 const renderMovie = async movies => {
+  spinner.enable();
+
   const films = movies.results;
   const genres = await movieSearch.fetchGenresMovie();
-  spinner.enable();
   films.map(film => {
     if (film.release_date !== undefined) {
       film.release_date = film.release_date.slice(0, 4);
@@ -29,16 +30,14 @@ const renderMovie = async movies => {
   refs.filmGallery.insertAdjacentHTML('beforeend', filmCardTemplate(films));
 };
 
-movieSearch.fetchPopularMovie().then(renderMovie);
+movieSearch.fetchTrendingMovie().then(renderMovie);
 
 const onSearchFilm = async e => {
   e.preventDefault();
   movieSearch.query = e.target.elements.query.value;
+
   refs.filmGallery.innerHTML = '';
   movieSearch.resetPage();
   await movieSearch.fetchMovieSearch().then(renderMovie);
-  // refs.filmGallery.insertAdjacentHTML('beforeend', filmCardTemplate(films));
-  // console.log(movieSearch.query);
 };
 refs.searchFilm.addEventListener('submit', onSearchFilm);
-// console.log(query);
