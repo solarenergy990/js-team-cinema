@@ -29,16 +29,18 @@
     <p class='modal-movie-description'>{{overview}}</p>
     <div class='modal-buttons'>
       <button
-        class='button button-orange modal-button modal-left-button'
+        class='button button-orange modal-button modal-left-button js-add-to-watched'
         type='button'
-        data-action='add-to-watched'
+        {{! data-action='add-to-watched' }}
+        id='add-to-watched'
       >
         add to Watched
       </button>
       <button
-        class='button modal-button modal-right-button'
+        class='button modal-button modal-right-button js-add-to-queue'
         type='button'
-        data-action='add-to-queue'
+        {{! data-action='add-to-queue' }}
+        id='add-to-queue'
       >
         add to queue
       </button>

@@ -7,8 +7,8 @@ export default function getRefs() {
     modalBtn: document.querySelector('[data-action="Sind-In"]'),
     modalSingIn: document.querySelector('.formRegistr'),
 
-    btnWatched: document.querySelector('[data-action="add-to-watched"]'),
-    btnQueue: document.querySelector('[data-action="add-to-queue"]'),
+    // btnWatched: document.querySelector('[data-action="add-to-watched"]'),
+    // btnQueue: document.querySelector('[data-action="add-to-queue"]'),
     btnMyLibrary: document.querySelector('.js-library'),
     containerWatchedFilms: document.querySelector('.gallery'),
     watched: document.querySelector('#Watched'),
@@ -18,6 +18,5 @@ export default function getRefs() {
     scrollToTop: document.querySelector('#scrollTop'),
     filmGallery: document.querySelector('.gallery'),
     searchFilm: document.querySelector('.form-container'),
-
   };
 }
