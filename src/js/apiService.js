@@ -7,7 +7,7 @@ export default class MovieSearch {
   }
   fetchPopularMovie() {
     return fetch(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=${this.page}`,
+      `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}&language=en-US&page=${this.page}`,
     ).then(response => {
       if (response.ok) {
         // console.log(page);
