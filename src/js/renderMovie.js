@@ -34,11 +34,14 @@ movieSearch.fetchPopularMovie().then(renderMovie);
 const onSearchFilm = async e => {
   e.preventDefault();
   movieSearch.query = e.target.elements.query.value;
+  console.log(movieSearch.query);
+  if (movieSearch.query === '') {
+    movieSearch.resetPage();
+    movieSearch.fetchPopularMovie().then(renderMovie);
+  }
   refs.filmGallery.innerHTML = '';
   movieSearch.resetPage();
   await movieSearch.fetchMovieSearch().then(renderMovie);
-  // refs.filmGallery.insertAdjacentHTML('beforeend', filmCardTemplate(films));
-  // console.log(movieSearch.query);
 };
 refs.searchFilm.addEventListener('submit', onSearchFilm);
 // console.log(query);
