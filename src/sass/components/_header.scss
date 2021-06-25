@@ -74,46 +74,6 @@
   }
 }
 
-.header-container {
-  width: 100%;
-
-  @media screen and (min-width: 320px) {
-    width: 320px;
-  }
-
-  @media screen and (min-width: 768px) {
-    width: 768px;
-  }
-
-  @media screen and (min-width: 1024px) {
-    width: 1024px;
-  }
-}
-
-// reused .main-container {
-//   width: 100%;
-//   margin-left: auto;
-//   margin-right: auto;
-
-//   @media screen and (min-width: 320px) {
-//     width: 320px;
-//     padding-left: 20px;
-//     padding-right: 20px;
-//   }
-
-//   @media screen and (min-width: 768px) {
-//     width: 768px;
-//     padding-left: 75px;
-//     padding-right: 75px;
-//   }
-
-//   @media screen and (min-width: 1024px) {
-//     width: 1024px;
-//     padding-left: 71px;
-//     padding-right: 71px;
-//   }
-// }
-
 .home-container {
   padding-top: 46px;
   padding-bottom: 97px;
