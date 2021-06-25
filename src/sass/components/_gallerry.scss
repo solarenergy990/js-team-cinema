@@ -47,21 +47,20 @@ img {
   }
 }
 
-.main-container {
+.gallery-container {
   width: 320px;
-  // padding: 10px;
   margin-right: auto;
   margin-left: auto;
   align-content: center;
 }
 @media screen and (min-width: 768px) {
-  .main-container {
+  .gallery-container {
     width: 768px;
     padding: 0px 60px;
   }
 }
 @media screen and (min-width: 1024px) {
-  .main-container {
+  .gallery-container {
     width: 1024px;
     padding-left: 56px;
     padding-right: 56px;
