@@ -6,22 +6,10 @@ const libraryPage = document.querySelector('.js-library');
 // const headerBtnSignIn = document.querySelector('[data-action="Sind-In"]');
 // const headerBtnSignUp = document.querySelector('[data-action="registerUp"]');
 
-// #1
-// const pageHeader = document.querySelector('.page-header');
-
-// function onLibraryPageClick(e) {
-//   e.preventDefault();
-
-//   const homeBgcContainer = document.getElementById('home');
-//   homeBgcContainer.remove();
-//   pageHeader.insertAdjacentHTML('beforeend', libraryHeaderTpl());
-// }
-
 // #2
 const homeBgcContainer = document.getElementById('home');
-const homeContainer = document.getElementById('home-container');
+const homeContainer = document.querySelector('.home-container');
 const formContainer = document.querySelector('.form-container');
-// const navLink = document.querySelector('.nav-link');
 const itemHome = document.querySelector('.item-home');
 const itemLibrary = document.querySelector('.item-library');
 
@@ -35,7 +23,6 @@ function onLibraryPageClick(e) {
   }
   formContainer.remove();
   homeContainer.insertAdjacentHTML('beforeend', libraryHeaderTpl());
-  // navLink.classList.add('disabled');
   itemHome.classList.remove('current');
   itemLibrary.classList.add('current');
 }

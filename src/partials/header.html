@@ -1,63 +1,65 @@
 <header class="page-header">
   <div class="home-bgc-container" id="home">
-    <div class="header-container main-container home-container" id="home-container">
-      <div class="toolbar">
-        <div class="theme-switch">
-          <svg class="theme-switch__icon" role="img" aria-label="Иконка солнца">
-            <use href="/images/sprite.svg#sun"></use>
-          </svg>
+    <div class="main-container">
+      <section class="home-container">
+        <div class="toolbar">
+          <div class="theme-switch">
+            <svg class="theme-switch__icon" role="img" aria-label="Иконка солнца">
+              <use href="/images/sprite.svg#sun"></use>
+            </svg>
 
-          <div class="theme-switch__control">
-            <input
-              class="theme-switch__toggle"
-              type="checkbox"
-              name="theme"
-              id="theme-switch-toggle"
-              aria-label="Переключить между тёмной и светлой темой"
-            />
-            <label aria-hidden="true" class="theme-switch__track" for="theme-switch-toggle">
-            </label>
-            <div aria-hidden="true" class="theme-switch__marker"></div>
+            <div class="theme-switch__control">
+              <input
+                class="theme-switch__toggle"
+                type="checkbox"
+                name="theme"
+                id="theme-switch-toggle"
+                aria-label="Переключить между тёмной и светлой темой"
+              />
+              <label aria-hidden="true" class="theme-switch__track" for="theme-switch-toggle">
+              </label>
+              <div aria-hidden="true" class="theme-switch__marker"></div>
+            </div>
+
+            <svg class="theme-switch__icon" aria-label="Иконка луны">
+              <use href="/images/sprite.svg#moon"></use>
+            </svg>
           </div>
-
-          <svg class="theme-switch__icon" aria-label="Иконка луны">
-            <use href="/images/sprite.svg#moon"></use>
-          </svg>
         </div>
-      </div>
-      <div class="header-box">
-        <a href="./index.html" class="logo">
-          <svg class="logo-icon" width="24" height="24">
-            <use href="/images/symbol-defs.svg#icon-film"></use>
+        <div class="header-box">
+          <a href="./index.html" class="logo">
+            <svg class="logo-icon" width="24" height="24">
+              <use href="/images/symbol-defs.svg#icon-film"></use>
+            </svg>
+            <span class="logo-text">Filmoteka</span>
+          </a>
+          <nav class="header-nav">
+            <!-- current -->
+            <!-- <button type="button" class="sing_in" data-action="Sind-In">Sign In</button> -->
+            <ul class="header-nav-list">
+              <li class="header-nav-item item-home current">
+                <a href="./index.html" class="header-link js-home">Home</a>
+              </li>
+              <li class="header-nav-item item-library">
+                <!-- visually-hidden -->
+                <a href="/" class="header-link js-library nav-link">my library</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <form class="form-container">
+          <input
+            id="elem1"
+            type="text"
+            placeholder="Поиск фильмов"
+            class="js-input search-input"
+            name="query"
+          />
+          <svg class="search-icon" width="12" height="12">
+            <use href="/images/symbol-defs.svg#icon-search"></use>
           </svg>
-          <span class="logo-text">Filmoteka</span>
-        </a>
-        <nav class="header-nav">
-          <!-- current -->
-          <!-- <button type="button" class="sing_in" data-action="Sind-In">Sign In</button> -->
-          <ul class="header-nav-list">
-            <li class="header-nav-item item-home current">
-              <a href="./index.html" class="header-link js-home">Home</a>
-            </li>
-            <li class="header-nav-item item-library">
-              <!-- visually-hidden -->
-              <a href="/" class="header-link js-library nav-link">my library</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <form class="form-container">
-        <input
-          id="elem1"
-          type="text"
-          placeholder="Поиск фильмов"
-          class="js-input search-input"
-          name="query"
-        />
-        <svg class="search-icon" width="12" height="12">
-          <use href="/images/symbol-defs.svg#icon-search"></use>
-        </svg>
-      </form>
+        </form>
+      </section>
     </div>
   </div>
 </header>
