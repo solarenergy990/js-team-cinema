@@ -10,6 +10,7 @@ export default function getRefs() {
     // btnWatched: document.querySelector('[data-action="add-to-watched"]'),
     // btnQueue: document.querySelector('[data-action="add-to-queue"]'),
     btnMyLibrary: document.querySelector('.js-library'),
+    btnHome: document.querySelector('.js-home'),
     containerWatchedFilms: document.querySelector('.gallery'),
     watched: document.querySelector('#Watched'),
     queue: document.querySelector('#que'),

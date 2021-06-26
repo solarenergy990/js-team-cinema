@@ -29,8 +29,6 @@ const renderMovie = async movies => {
   refs.filmGallery.insertAdjacentHTML('beforeend', filmCardTemplate(films));
 };
 
-movieSearch.fetchPopularMovie().then(renderMovie);
-
 const onSearchFilm = async e => {
   e.preventDefault();
   movieSearch.query = e.target.elements.query.value;
@@ -43,5 +41,13 @@ const onSearchFilm = async e => {
   movieSearch.resetPage();
   await movieSearch.fetchMovieSearch().then(renderMovie);
 };
+
+const onTrendingFilm = e => {
+  refs.filmGallery.innerHTML = '';
+  movieSearch.resetPage();
+  movieSearch.fetchPopularMovie().then(renderMovie);
+};
+
+movieSearch.fetchPopularMovie().then(renderMovie);
 refs.searchFilm.addEventListener('submit', onSearchFilm);
-// console.log(query);
+refs.btnHome.addEventListener('click', onTrendingFilm);
