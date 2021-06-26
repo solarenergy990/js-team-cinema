@@ -31,8 +31,6 @@ function renderWatchedBtn() {
     .get()
     .then(querySnapshot => {
       querySnapshot.forEach(doc => {
-        checkID = doc.data().id;
-        console.log(checkID);
         renderWatched(doc);
       });
     });
@@ -50,6 +48,16 @@ function renderQueueBtn() {
 }
 
 const renderWatched = doc => {
+  console.log(doc.id);
+  const addDeleteByIdClick = evt => {
+    if (evt.target.classList.contains(`js-add-to-delete`)) {
+      addDeleteById();
+    }
+  };
+  addEventListener('click', addDeleteByIdClick);
+  function addDeleteById() {
+    console.log('delete');
+  }
   const li = filmCard(doc.data());
   refs.containerWatchedFilms.insertAdjacentHTML('beforeend', li);
 };

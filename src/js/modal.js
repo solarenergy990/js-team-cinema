@@ -17,8 +17,6 @@ const refs = {
 };
 
 refs.movieCardContainer.addEventListener('click', onGalleryClick);
-// refs.btnWatched.addEventListener('click', addWatchedById);
-// refs.btnQueue.addEventListener('click', addQueueById);
 
 function onGalleryClick(event) {
   event.preventDefault();
@@ -90,27 +88,45 @@ const addQueueByIdClick = evt => {
 addEventListener('click', addQueueByIdClick);
 
 function addWatchedById() {
-  db.collection('watched').add({
-    id: movieDetailsGlobal.id,
-    poster_path: movieDetailsGlobal.poster_path,
-    backdrop_path: movieDetailsGlobal.backdrop_path,
-    original_title: movieDetailsGlobal.original_title,
-    genre_ids: movieDetailsGlobal.genres.map(a => a),
-    release_date: movieDetailsGlobal.release_date,
-    vote_average: movieDetailsGlobal.vote_average,
-  });
-  alert('movie added successfully Watched');
+  db.collection('watched')
+    .get()
+    .then(querySnapshot => {
+      const ids = [];
+      querySnapshot.forEach(doc => ids.push(doc.data().id));
+      const isExist = ids.some(id => id === movieDetailsGlobal.id);
+      if (!isExist) {
+        db.collection('watched').add({
+          id: movieDetailsGlobal.id,
+          poster_path: movieDetailsGlobal.poster_path,
+          backdrop_path: movieDetailsGlobal.backdrop_path,
+          original_title: movieDetailsGlobal.original_title,
+          genre_ids: movieDetailsGlobal.genres.map(a => a),
+          release_date: movieDetailsGlobal.release_date,
+          vote_average: movieDetailsGlobal.vote_average,
+        });
+      }
+    });
+  closeModal();
 }
 
 function addQueueById() {
-  db.collection('queue').add({
-    id: movieDetailsGlobal.id,
-    poster_path: movieDetailsGlobal.poster_path,
-    backdrop_path: movieDetailsGlobal.backdrop_path,
-    original_title: movieDetailsGlobal.original_title,
-    genre_ids: movieDetailsGlobal.genres.map(a => a),
-    release_date: movieDetailsGlobal.release_date,
-    vote_average: movieDetailsGlobal.vote_average,
-  });
-  alert('movie added successfully Queue');
+  db.collection('queue')
+    .get()
+    .then(querySnapshot => {
+      const ids = [];
+      querySnapshot.forEach(doc => ids.push(doc.data().id));
+      const isExist = ids.some(id => id === movieDetailsGlobal.id);
+      if (!isExist) {
+        db.collection('queue').add({
+          id: movieDetailsGlobal.id,
+          poster_path: movieDetailsGlobal.poster_path,
+          backdrop_path: movieDetailsGlobal.backdrop_path,
+          original_title: movieDetailsGlobal.original_title,
+          genre_ids: movieDetailsGlobal.genres.map(a => a),
+          release_date: movieDetailsGlobal.release_date,
+          vote_average: movieDetailsGlobal.vote_average,
+        });
+      }
+    });
+  closeModal();
 }
