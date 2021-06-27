@@ -231,6 +231,25 @@
 .header-nav-list .item-library.current::after {
   opacity: 1;
 }
+.header-warning {
+  position: absolute;
+  top: 155px;
+
+  font-size: 14px;
+  line-height: 1.14;
+
+  @media screen and (min-width: 720px) {
+    width: 616px;
+    text-align: center;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 882px;
+    text-align: center;
+  }
+
+  color: #ff001b;
+}
 
 // удалить позже, когда точно решим с кнопками
 // .btn-transparent {
