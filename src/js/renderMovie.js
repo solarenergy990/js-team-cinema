@@ -25,8 +25,12 @@ const renderMovie = async movies => {
     );
   });
   spinner.disable();
-
   refs.filmGallery.insertAdjacentHTML('beforeend', filmCardTemplate(films));
+  // refs.firstPage.textContent = 1;
+  refs.prevPage.textContent = movieSearch.page - 2;
+  refs.currentPage.textContent = movieSearch.page - 1;
+  refs.nextPage.textContent = movieSearch.page;
+  refs.lastPage.textContent = movies.total_pages;
 };
 
 const onSearchFilm = async e => {
@@ -48,6 +52,24 @@ const onTrendingFilm = e => {
   movieSearch.fetchPopularMovie().then(renderMovie);
 };
 
+const onNextPage = async e => {
+  e.preventDefault();
+  refs.filmGallery.innerHTML = '';
+  refs.header.scrollIntoView({ behavior: 'smooth' });
+  await movieSearch.fetchPopularMovie().then(renderMovie);
+};
+
+const onPreviousPage = async e => {
+  e.preventDefault();
+  movieSearch.page = movieSearch.page - 2;
+  refs.filmGallery.innerHTML = '';
+  refs.header.scrollIntoView({ behavior: 'smooth' });
+  await movieSearch.fetchPopularMovie().then(renderMovie);
+};
+
+console.log(movieSearch.page);
 movieSearch.fetchPopularMovie().then(renderMovie);
 refs.searchFilm.addEventListener('submit', onSearchFilm);
 refs.btnHome.addEventListener('click', onTrendingFilm);
+refs.arrowRight.addEventListener('click', onNextPage);
+refs.arrowLeft.addEventListener('click', onPreviousPage);

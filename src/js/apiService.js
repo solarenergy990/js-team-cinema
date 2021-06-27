@@ -54,4 +54,20 @@ export default class MovieSearch {
     this.page = 1;
     // console.log(page);
   }
+
+  get searchQuery() {
+    return this.query;
+  }
+
+  set searchQuery(newQuery) {
+    this.query = newQuery;
+  }
+
+  get currentPage() {
+    return this.page;
+  }
+
+  set currentPage(newPage) {
+    this.page = newPage;
+  }
 }

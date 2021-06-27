@@ -19,5 +19,13 @@ export default function getRefs() {
     scrollToTop: document.querySelector('#scrollTop'),
     filmGallery: document.querySelector('.gallery'),
     searchFilm: document.querySelector('.form-container'),
+
+    arrowLeft: document.querySelector('.page-prev'),
+    arrowRight: document.querySelector('.page-next'),
+    firstPage: document.querySelector('.page-item-first'),
+    prevPage: document.querySelector('.page-item-prev'),
+    currentPage: document.querySelector('.page-item-current'),
+    nextPage: document.querySelector('.page-item-next'),
+    lastPage: document.querySelector('.page-item-last'),
   };
 }
