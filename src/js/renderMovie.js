@@ -31,28 +31,35 @@ const renderMovie = async movies => {
 
 const onSearchFilm = async e => {
   e.preventDefault();
-  movieSearch.query = e.target.value.trim();
-  console.log(movieSearch.query);
+  movieSearch.query = e.target.elements.query.value.trim();
+
   if (movieSearch.query === '') {
     movieSearch.resetPage();
     movieSearch.fetchPopularMovie().then(renderMovie);
-    refs.warningField.textContent = `You forgot to make a request :)`;
-    refs.searchResField.textContent = '';
-    return;
+    refs.searchResField.textContent = `You forgot to make a request :)`;
+    refs.searchResField.style.color = '#ff0000';
+    setTimeout(() => {
+      refs.searchResField.textContent = '';
+    }, 2000);
   }
-  // if () {
-  //   refs.warningField.textContent = `Sorry, there no results found. Try searching for something else!`;
-  // refs.searchResField.textContent = '';
-  // }
+  const request = await movieSearch.fetchMovieSearch();
 
-  refs.searchResField.textContent = `Successful! We found films by your request "${movieSearch.query}"!`;
-  refs.searchResField.style.color = '#48d610';
-  refs.warningField.textContent = '';
+  if (request.results.length === 0) {
+    refs.searchResField.textContent = `Sorry, there no results found. Try searching for something else!`;
+    refs.searchResField.style.color = '#ff0000';
+    refs.searchInput.value = '';
+  } else {
+    refs.searchResField.textContent = `Successful! We found films by your request "${movieSearch.query}"!`;
+    refs.searchResField.style.color = '#48d610';
+    refs.filmGallery.innerHTML = '';
+    refs.searchInput.value = '';
+    movieSearch.resetPage();
+    await movieSearch.fetchMovieSearch().then(renderMovie);
+  }
 
-  refs.filmGallery.innerHTML = '';
-  movieSearch.resetPage();
-
-  await movieSearch.fetchMovieSearch().then(renderMovie);
+  setTimeout(() => {
+    refs.searchResField.textContent = '';
+  }, 2000);
 };
 
 const onTrendingFilm = e => {
@@ -62,7 +69,7 @@ const onTrendingFilm = e => {
 };
 
 movieSearch.fetchPopularMovie().then(renderMovie);
-refs.searchFilm.addEventListener('input', debounce(500, onSearchFilm));
+refs.searchFilm.addEventListener('submit', onSearchFilm);
 refs.btnHome.addEventListener('click', onTrendingFilm);
 
 export { renderMovie, onSearchFilm };
