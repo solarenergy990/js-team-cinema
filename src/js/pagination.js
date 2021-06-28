@@ -1,17 +1,17 @@
 import getRefs from './getRefs.js';
 import queryMovies from './queryMovies';
 import MovieSearch from './apiService.js';
+import { debounce } from 'throttle-debounce';
 
 const movieSearch = new MovieSearch();
 const refs = getRefs();
 
-refs.pagination.addEventListener('click', onBtnClick);
 let currPage = 1;
 
 refs.previous.hidden = true;
 refs.dots1.hidden = true;
 
-function onBtnClick(event) {
+const onBtnClick = event => {
   if (event.target.tagName === 'BUTTON') {
     const activeBtn = event.target.dataset.index;
     currPage = Number(activeBtn);
@@ -82,7 +82,7 @@ function onBtnClick(event) {
     refs.next.hidden = true;
     refs.dots2.hidden = true;
   }
-}
+};
 
 let btns = document.querySelectorAll('.btn');
 
@@ -97,5 +97,12 @@ function setBtnActiveStyle(event) {
 // movieSearch.currentPage();
 console.log('to set currPage', movieSearch.currentPage);
 console.log('actual currPage', currPage);
+
+refs.pagination.addEventListener('click', onBtnClick);
+
+// refs.pagination.addEventListener(
+//   'click',
+//   debounce(e => onBtnClick(e.target.value.trim()), 500),
+// );
 
 export { currPage };

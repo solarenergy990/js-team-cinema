@@ -36,5 +36,6 @@ export default function getRefs() {
     dots1: document.querySelector('.js-dots1'),
     dots2: document.querySelector('.js-dots2'),
     btnMore: document.querySelector('.btn-load-more'),
+    pagContainer: document.querySelector('.pagination-style'),
   };
 }

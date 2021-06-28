@@ -65,4 +65,4 @@ movieSearch.fetchPopularMovie().then(renderMovie);
 refs.searchFilm.addEventListener('submit', onSearchFilm);
 refs.btnHome.addEventListener('click', onTrendingFilm);
 
-export { renderMovie };
+export { renderMovie, onSearchFilm };
