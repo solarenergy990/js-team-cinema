@@ -31,7 +31,7 @@ const renderMovie = async movies => {
 
 const onSearchFilm = async e => {
   e.preventDefault();
-  movieSearch.query = e.target.elements.query.value;
+  movieSearch.query = e.target.elements.query.value.trim();
   console.log(movieSearch.query);
   if (movieSearch.query === '') {
     movieSearch.resetPage();
@@ -48,6 +48,7 @@ const onSearchFilm = async e => {
   refs.searchResField.textContent = `Successful! We found films by your request "${movieSearch.query}"!`;
   refs.searchResField.style.color = '#48d610';
   refs.warningField.textContent = '';
+  refs.searchInput.value = '';
 
   refs.filmGallery.innerHTML = '';
   movieSearch.resetPage();
