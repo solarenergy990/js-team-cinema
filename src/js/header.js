@@ -1,9 +1,5 @@
 import libraryHeaderTpl from '../templates/libraryHeaderTpl.hbs';
 
-import headerInputTpl from '../templates/headerInputTpl.hbs';
-import getRefs from './getRefs.js';
-
-
 // замена кнопок sign in и my library
 // const signIn = document.querySelector('[data-action="registerIn"]');
 // const headerBtnSignIn = document.querySelector('[data-action="Sind-In"]');
@@ -17,7 +13,6 @@ const homeContainer = document.querySelector('.home-container');
 const formContainer = document.querySelector('.form-container');
 const itemHome = document.querySelector('.item-home');
 const itemLibrary = document.querySelector('.item-library');
-const refs = getRefs();
 
 function onLibraryPageClick(e) {
   e.preventDefault();
@@ -26,8 +21,6 @@ function onLibraryPageClick(e) {
   renderButton();
   itemHome.classList.remove('current');
   itemLibrary.classList.add('current');
-  refs.searchResField.textContent = '';
-  refs.warningField.textContent = '';
 }
 
 function renderButton() {
@@ -43,8 +36,6 @@ function onHomePageClick(e) {
   homeContainer.classList.replace('library-container', 'home-container');
   homeBgcContainer.classList.replace('library-bgc-container', 'home-bgc-container');
   renderSearchInput();
-  refs.searchResField.textContent = '';
-  refs.warningField.textContent = '';
 
   itemLibrary.classList.remove('current');
   itemHome.classList.add('current');
