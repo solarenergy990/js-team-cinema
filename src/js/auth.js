@@ -9,15 +9,21 @@ const BASE_URL = 'https://identitytoolkit.googleapis.com/v1';
 
 refs.btnRegisterUp.addEventListener('click', registerHendler);
 refs.btnRegisterIn.addEventListener('click', loginHendler);
+// refs.btnMyLibrary.addEventListener('click', changeBtn)
 refs.modalBtn.addEventListener('click', addModal);
+// refs.btnMyLibrary.addEventListener('click', () => {
+//   addModal()
+//   refs.containerWatchedFilms.innerHTML = ' ';
+// });
 
 function addModal() {
-  refs.modalSingIn.classList.add('is-hidden');
+  refs.modalSingIn.classList.add('is-activ');
 }
 
 function removeModal() {
-  refs.modalSingIn.classList.remove('is-hidden');
+  refs.modalSingIn.classList.remove('is-activ');
 }
+
 
 // function getEmail(e) {
 //   email = e.currentTarget.value;
@@ -31,7 +37,7 @@ function removeModal() {
 // }
 
 async function loginHendler() {
-  removeModal();
+    removeModal();
   const authData = {
     email: refs.email.value,
     password: refs.password.value,

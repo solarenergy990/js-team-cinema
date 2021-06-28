@@ -105,6 +105,11 @@ img {
   // box-shadow: 0 0 20px rgba(55%, 55%, 55%, 0.5);
 }
 
+.card:hover .btnremove {
+  display: block;
+}
+
+
 // .card:hover,
 // .card:focus {
 //   transition: 250ms;
@@ -114,6 +119,7 @@ img {
 // .card:hover .btnremove {
 //   display: block;
 // }
+
 
 .poster-container {
   position: relative;
@@ -194,16 +200,16 @@ img {
   border-radius: 5px;
 }
 
-// .btnremove {
-//   position: absolute;
-//   top: -10px;
-//   right: -10px;
-//   cursor: pointer;
+.btnremove {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  cursor: pointer;
 
-//   display: none;
+  display: none;
 
-//   border-radius: 50%;
-//   border: none;
-//   background-color: black;
-//   color: white;
-// }
+  border-radius: 50%;
+  border: none;
+  background-color: black;
+  color: white;
+}
