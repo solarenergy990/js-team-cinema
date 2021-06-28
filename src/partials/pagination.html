@@ -1,6 +1,27 @@
 <section class="pagination js-pagination">
     <div class="main-container">
-        <nav aria-label="page-navigation">
+        <div class="pagination container">
+            <div class="pagination-style">
+                <button class="btn-page previous" data-index="1"><svg class="icon pagination-arrow-icon" width="16"
+                        height="16">
+                        <use href="./images/symbol-defs.svg#icon-arrow-left2"></use>
+                    </svg></button>
+                <span class="btn-dots js-dots1">...</span>
+                <button class="btn-page1 active btn" data-index="1">1</button>
+                <button class="btn-page2 btn" data-index="2">2</button>
+                <button class="btn-page3 btn" data-index="3">3</button>
+                <button class="btn-page4 btn" data-index="4">4</button>
+                <button class="btn-page5 btn" data-index="5">5</button>
+                <span class="btn-dots js-dots">...</span>
+                <button class="btn-page next" data-index="1"><svg class="icon pagination-arrow-icon" width="16"
+                        height="16">
+                        <use href="./images/symbol-defs.svg#icon-arrow-right2"></use>
+                    </svg></button>
+            </div>
+        </div>
+        <!-- &larr; -->
+        <!-- &rarr; -->
+        <!-- <nav aria-label="page-navigation">
             <div class="page-nav-container">
                 <ul class="pagination-list">
                     <li class="page-item disabled arrow-btn">
@@ -28,7 +49,7 @@
                     </li>
                 </ul>
             </div>
-        </nav>
+        </nav> -->
     </div>
     <div class="scroll" id="scrollTop"></div>
 </section>
