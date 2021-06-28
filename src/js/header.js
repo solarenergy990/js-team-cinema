@@ -1,5 +1,4 @@
 import libraryHeaderTpl from '../templates/libraryHeaderTpl.hbs';
-import headerInputTpl from '../templates/headerInputTpl.hbs';
 
 // замена кнопок sign in и my library
 // const signIn = document.querySelector('[data-action="registerIn"]');

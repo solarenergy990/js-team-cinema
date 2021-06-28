@@ -100,10 +100,26 @@ img {
 .card {
   position: relative;
   cursor: pointer;
+  border-radius: 4px;
+  // filter: drop-shadow(4px 4px 4px rgba(55%, 55%, 55%, 0.6));
+  // box-shadow: 0 0 20px rgba(55%, 55%, 55%, 0.5);
 }
+
 .card:hover .btnremove {
   display: block;
 }
+
+
+// .card:hover,
+// .card:focus {
+//   transition: 250ms;
+//   box-shadow: 0 0 20px rgba(250, 119, 12, 0.897);
+// }
+
+// .card:hover .btnremove {
+//   display: block;
+// }
+
 
 .poster-container {
   position: relative;
@@ -113,6 +129,8 @@ img {
   border-radius: 5px;
   object-fit: contain;
   overflow: hidden;
+  filter: drop-shadow(4px 4px 4px rgba(55%, 55%, 55%, 0.6));
+  box-shadow: 0 0 20px rgba(55%, 55%, 55%, 0.5);
 
   @media screen and (min-width: 768px) {
     width: 294px;
@@ -121,6 +139,11 @@ img {
   @media screen and (min-width: 1024px) {
     width: 274px;
   }
+}
+.poster-container:hover,
+.poster-container:hover {
+  transition: 250ms;
+  box-shadow: 0 0 20px rgba(250, 119, 12, 0.897);
 }
 
 .text-title {
