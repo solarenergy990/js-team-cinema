@@ -18,7 +18,6 @@ const refs = {
 
 refs.movieCardContainer.addEventListener('click', onGalleryClick);
 
-
 function onGalleryClick(event) {
   event.preventDefault();
   refs.filmCard.innerHTML = '';

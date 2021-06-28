@@ -1,6 +1,6 @@
 .formRegistr {
   position: absolute;
-  top: 20%;
+  top: 70%;
   transform: translateX(123%);
   width: 400px;
   height: 400px;
@@ -11,7 +11,7 @@
   align-items: center;
   justify-content: center;
 
-  display: none;
+  opacity: 0;
   button {
     padding: 10px;
     margin: 10px;
@@ -73,8 +73,8 @@
   color: red;
 }
 
-.is-activ {
-  display: flex;
+.is-hidden {
+  opacity: 1;
 }
 
 // button header
