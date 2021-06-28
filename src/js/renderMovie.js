@@ -38,6 +38,9 @@ const onSearchFilm = async e => {
     movieSearch.fetchPopularMovie().then(renderMovie);
     refs.searchResField.textContent = `You forgot to make a request :)`;
     refs.searchResField.style.color = '#ff0000';
+    setTimeout(() => {
+      refs.searchResField.textContent = '';
+    }, 2000);
   }
   const request = await movieSearch.fetchMovieSearch();
 
@@ -56,7 +59,7 @@ const onSearchFilm = async e => {
 
   setTimeout(() => {
     refs.searchResField.textContent = '';
-  }, 3000);
+  }, 2000);
 };
 
 const onTrendingFilm = e => {
