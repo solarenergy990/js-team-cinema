@@ -9,18 +9,17 @@ const refs = getRefs();
 const element = refs.containerWatchedFilms;
 
 function queryMovies(e) {
-  refs.gallery.innerHTML = '';
   console.log('this is moviesearch query');
 
   if (movieSearch.query != '') {
-    // refs.searchBtn.click();
-
+    // movieSearch.resetPage();
+    refs.filmGallery.innerHTML = '';
     console.log('this is moviesearch query', movieSearch.query);
     movieSearch.onSearchFilm();
   } else {
     // e.preventDefault();
-    // refs.filmGallery.innerHTML = '';
-    movieSearch.resetPage();
+    refs.filmGallery.innerHTML = '';
+    // movieSearch.resetPage();
     movieSearch.fetchPopularMovie().then(renderMovie).then(moveTo);
   }
 }

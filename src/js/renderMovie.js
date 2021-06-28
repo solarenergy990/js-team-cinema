@@ -31,6 +31,7 @@ const renderMovie = async movies => {
 
 const onSearchFilm = async e => {
   e.preventDefault();
+  console.log('onSearchFilm');
   movieSearch.query = e.target.elements.query.value;
   console.log(movieSearch.query);
   if (movieSearch.query === '') {

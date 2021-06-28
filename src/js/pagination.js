@@ -102,4 +102,6 @@ refs.pagination.addEventListener('click', onBtnClick);
 
 // refs.pagination.addEventListener('click', debounce(1000, onBtnClick));
 
+refs.searchFilm.addEventListener('submit');
+
 export { currPage };
