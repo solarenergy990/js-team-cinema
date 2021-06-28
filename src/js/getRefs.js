@@ -22,7 +22,6 @@ export default function getRefs() {
     filmGallery: document.querySelector('.gallery'),
     searchFilm: document.querySelector('.form-container'),
     searchInput: document.querySelector('.js-input'),
-    warningField: document.querySelector('.js-warning'),
     searchResField: document.querySelector('.js-search-results'),
     gallery: document.querySelector('#gallery'),
     // pagination refs
