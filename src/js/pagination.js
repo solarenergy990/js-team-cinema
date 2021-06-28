@@ -98,10 +98,14 @@ function setBtnActiveStyle(event) {
 console.log('to set currPage', movieSearch.currentPage);
 console.log('actual currPage', currPage);
 
+const onSearchInput = e => {
+  if (e.target) {
+  }
+  console.log('congrats input');
+};
+
 refs.pagination.addEventListener('click', onBtnClick);
-
+refs.searchFilm.addEventListener('submit', onSearchInput);
 // refs.pagination.addEventListener('click', debounce(1000, onBtnClick));
-
-refs.searchFilm.addEventListener('submit');
 
 export { currPage };
