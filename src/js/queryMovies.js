@@ -2,6 +2,7 @@ import getRefs from './getRefs.js';
 // import fetchMovies from './fetchMovies';
 import MovieSearch from './apiService.js';
 import { renderMovie, onSearchFilm } from './renderMovie';
+// import { debounce, throttle } from 'throttle-debounce';
 
 const movieSearch = new MovieSearch();
 const refs = getRefs();
@@ -18,7 +19,7 @@ function queryMovies(e) {
     movieSearch.onSearchFilm();
   } else {
     // e.preventDefault();
-    refs.filmGallery.innerHTML = '';
+    // refs.filmGallery.innerHTML = '';
     movieSearch.resetPage();
     movieSearch.fetchPopularMovie().then(renderMovie).then(moveTo);
   }

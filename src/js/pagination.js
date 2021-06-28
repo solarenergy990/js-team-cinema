@@ -1,7 +1,7 @@
 import getRefs from './getRefs.js';
 import queryMovies from './queryMovies';
 import MovieSearch from './apiService.js';
-import { debounce } from 'throttle-debounce';
+import { debounce, throttle } from 'throttle-debounce';
 
 const movieSearch = new MovieSearch();
 const refs = getRefs();
@@ -100,6 +100,6 @@ console.log('actual currPage', currPage);
 
 refs.pagination.addEventListener('click', onBtnClick);
 
-// refs.pagination.addEventListener('click', debounce(onBtnClick, 500));
+// refs.pagination.addEventListener('click', debounce(1000, onBtnClick));
 
 export { currPage };
