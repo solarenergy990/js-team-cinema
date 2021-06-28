@@ -98,9 +98,11 @@ function setBtnActiveStyle(event) {
 console.log('to set currPage', movieSearch.currentPage);
 console.log('actual currPage', currPage);
 
-refs.pagination.addEventListener(
-  'click',
-  debounce(e => onBtnClick(e.target.value.trim()), 500),
-);
+refs.pagination.addEventListener('click', onBtnClick);
+
+// refs.pagination.addEventListener(
+//   'click',
+//   debounce(e => onBtnClick(e.target.value.trim()), 500),
+// );
 
 export { currPage };
