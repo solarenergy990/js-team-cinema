@@ -13,6 +13,7 @@ const onWatchedLibraryClick = evt => {
 
 addEventListener('click', onWatchedLibraryClick);
 
+
 const onQueueLibraryClick = evt => {
   if (evt.target.classList.contains('js-watched-que')) {
     renderQueueBtn();
@@ -21,8 +22,10 @@ const onQueueLibraryClick = evt => {
 
 addEventListener('click', onQueueLibraryClick);
 
+
 refs.btnMyLibrary.addEventListener('click', () => {
   refs.containerWatchedFilms.innerHTML = ' ';
+  renderWatchedBtn();
 });
 
 function renderWatchedBtn() {
@@ -48,16 +51,32 @@ function renderQueueBtn() {
 }
 
 const renderWatched = doc => {
-  console.log(doc.id);
-  const addDeleteByIdClick = evt => {
-    if (evt.target.classList.contains(`js-add-to-delete`)) {
-      addDeleteById();
-    }
-  };
-  addEventListener('click', addDeleteByIdClick);
-  function addDeleteById() {
-    console.log('delete');
-  }
+  checkID = doc;
+  // console.log(doc.id);
+  // const addDeleteByIdClick = evt => {
+  //   if (evt.target.classList.contains(`js-add-to-delete`)) {
+  //     addDeleteById();
+  //   }
+  // };
+  // addEventListener('click', addDeleteByIdClick);
+  // function addDeleteById() {
+  //   console.log('delete');
+  // }
   const li = filmCard(doc.data());
   refs.containerWatchedFilms.insertAdjacentHTML('beforeend', li);
+
+  // // Click delete user 
+  // // const btnDelete = document.querySelector(`[data-id='${doc.id}'] .btn-delete`)
+  // // btnDelete.addEventListener('click', () => {
+  // //   console.log(doc.id)
+  // })
 };
+
+
+// const onWatchedLibraryClick = evt => {
+//   if (evt.target.classList.contains('js-watched-btn')) {
+//     renderWatchedBtn();
+//   }
+// };
+
+// addEventListener('click', onWatchedLibraryClick);
