@@ -2,12 +2,12 @@ import MovieSearch from './apiService.js';
 import filmCardTemplate from '../templates/filmCardTemplate.hbs';
 import getRefs from './getRefs.js';
 import Spinner from './spinner.js';
+import { debounce } from 'throttle-debounce';
 
 const refs = getRefs();
 const spinner = new Spinner({
   selector: '.spinner',
 });
-
 const movieSearch = new MovieSearch();
 
 const renderMovie = async movies => {
@@ -31,7 +31,7 @@ const renderMovie = async movies => {
 
 const onSearchFilm = async e => {
   e.preventDefault();
-  movieSearch.query = e.target.elements.query.value;
+  movieSearch.query = e.target.value.trim();
   console.log(movieSearch.query);
   if (movieSearch.query === '') {
     movieSearch.resetPage();
@@ -62,7 +62,7 @@ const onTrendingFilm = e => {
 };
 
 movieSearch.fetchPopularMovie().then(renderMovie);
-refs.searchFilm.addEventListener('submit', onSearchFilm);
+refs.searchFilm.addEventListener('input', debounce(500, onSearchFilm));
 refs.btnHome.addEventListener('click', onTrendingFilm);
 
 export { renderMovie, onSearchFilm };
