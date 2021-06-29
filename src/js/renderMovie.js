@@ -93,5 +93,6 @@ const onTrendingFilm = e => {
 movieSearch.fetchPopularMovie().then(renderMovie);
 refs.searchFilm.addEventListener('input', debounce(1000, onSearchFilm));
 refs.btnHome.addEventListener('click', onTrendingFilm);
+refs.logo.addEventListener('click', onTrendingFilm);
 
 export { renderMovie, onSearchFilm };

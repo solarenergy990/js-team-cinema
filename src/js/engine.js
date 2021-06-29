@@ -7,6 +7,9 @@ const refs = getRefs();
 const onWatchedLibraryClick = evt => {
   if (evt.target.classList.contains('js-watched-btn')) {
     renderWatchedBtn();
+    const btnRefs = onBtnDelete();
+    btnRefs.watched.classList.add('button-active');
+    btnRefs.queue.classList.remove('button-active');
   }
 };
 
@@ -15,6 +18,9 @@ addEventListener('click', onWatchedLibraryClick);
 const onQueueLibraryClick = evt => {
   if (evt.target.classList.contains('js-watched-que')) {
     renderQueueBtn();
+    const btnRefs = onBtnDelete();
+    btnRefs.queue.classList.add('button-active');
+    btnRefs.watched.classList.remove('button-active');
   }
 };
 
@@ -37,8 +43,12 @@ async function renderWatchedBtn() {
 }
 
 function onBtnDelete(id, collection) {
-  const btnDelete = document.querySelector(`[data-film="${id}"]`);
-  return btnDelete;
+  const refs = {
+    btnDelete: document.querySelector(`[data-film="${id}"]`),
+    watched: document.querySelector('.js-watched-btn'),
+    queue: document.querySelector('.js-watched-que'),
+  }
+  return refs;
 }
 
 function renderQueueBtn() {
@@ -86,5 +96,7 @@ const renderWatched = async doc => {
       })
       .catch(error => console.log('error doc', error));
   }
-  btnRefs.addEventListener('click', addDeleteWatchedByIdClick);
+  btnRefs.btnDelete.addEventListener('click', addDeleteWatchedByIdClick);
 };
+
+export {renderWatchedBtn, renderQueueBtn}

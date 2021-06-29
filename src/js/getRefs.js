@@ -11,9 +11,10 @@ export default function getRefs() {
     // btnQueue: document.querySelector('[data-action="add-to-queue"]'),
     btnMyLibrary: document.querySelector('.js-library'),
     btnHome: document.querySelector('.js-home'),
+    logo: document.querySelector('.logo'),
     containerWatchedFilms: document.querySelector('.gallery'),
-    watched: document.querySelector('.js-watched-que'),
-    queue: document.querySelector('.js-watched-button'),
+    queue: document.querySelector('.js-watched-que'),
+    watched: document.querySelector('.js-watched-btn'),
     headerBtn: document.querySelector('.btn-container'),
 
     header: document.querySelector('.page-header'),
