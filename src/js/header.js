@@ -6,23 +6,15 @@ import getRefs from './getRefs.js';
 // const headerBtnSignIn = document.querySelector('[data-action="Sind-In"]');
 // const headerBtnSignUp = document.querySelector('[data-action="registerUp"]');
 
-const libraryPage = document.querySelector('.js-library');
-const homePage = document.querySelector('.js-home');
-
-const homeBgcContainer = document.getElementById('home');
-const homeContainer = document.querySelector('.home-container');
-const formContainer = document.querySelector('.form-container');
-const itemHome = document.querySelector('.item-home');
-const itemLibrary = document.querySelector('.item-library');
 const refs = getRefs();
 
 function onLibraryPageClick(e) {
   e.preventDefault();
-  homeContainer.classList.replace('home-container', 'library-container');
-  homeBgcContainer.classList.replace('home-bgc-container', 'library-bgc-container');
+  refs.homeContainer.classList.replace('home-container', 'library-container');
+  refs.homeBgcContainer.classList.replace('home-bgc-container', 'library-bgc-container');
   renderButton();
-  itemHome.classList.remove('current');
-  itemLibrary.classList.add('current');
+  refs.itemHome.classList.remove('current');
+  refs.itemLibrary.classList.add('current');
   refs.searchResField.textContent = '';
 }
 
@@ -31,35 +23,38 @@ function renderButton() {
   makeBtn.classList.add('btn-container');
   makeBtn.setAttribute('data-btn', 'container');
   makeBtn.insertAdjacentHTML('afterbegin', libraryHeaderTpl());
-  formContainer.replaceWith(makeBtn);
+  refs.searchFilm.replaceWith(makeBtn);
 }
 
 function onHomePageClick(e) {
   e.preventDefault();
-  homeContainer.classList.replace('library-container', 'home-container');
-  homeBgcContainer.classList.replace('library-bgc-container', 'home-bgc-container');
+  if (!refs.homeContainer.classList.contains('library-container')) {
+    return;
+  }
+  refs.homeContainer.classList.replace('library-container', 'home-container');
+  refs.homeBgcContainer.classList.replace('library-bgc-container', 'home-bgc-container');
   renderSearchInput();
 
-  itemLibrary.classList.remove('current');
-  itemHome.classList.add('current');
+  refs.itemLibrary.classList.remove('current');
+  refs.itemHome.classList.add('current');
 }
 
 function renderSearchInput() {
   const btnContainer = document.querySelector('[data-btn="container"]');
-  btnContainer.replaceWith(formContainer);
+  btnContainer.replaceWith(refs.searchFilm);
 }
 
 // замена кнопок sign in и my library
 // function onSignInBtnClick(e) {
-//   libraryPage.classList.remove('visually-hidden');
+//   refs.btnMyLibrary.classList.remove('visually-hidden');
 //   headerBtnSignIn.classList.add('visually-hidden');
 // }
 // function onSignUpBtnClick(e) {
-//   libraryPage.classList.remove('visually-hidden');
+//   refs.btnMyLibrary.classList.remove('visually-hidden');
 //   headerBtnSignIn.classList.add('visually-hidden');
 // }
 
-libraryPage.addEventListener('click', onLibraryPageClick);
-homePage.addEventListener('click', onHomePageClick);
+refs.btnMyLibrary.addEventListener('click', onLibraryPageClick);
+refs.btnHome.addEventListener('click', onHomePageClick);
 // signIn.addEventListener('click', onSignInBtnClick);
 // headerBtnSignUp.addEventListener('click', onSignUpBtnClick);

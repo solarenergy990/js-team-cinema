@@ -75,10 +75,11 @@
 }
 
 .home-container {
+  height: 250px;
+
   padding-top: 46px;
   padding-bottom: 97px;
 
-  height: auto;
   @media screen and (min-width: 769px) {
     padding-top: 41px;
   }
@@ -195,10 +196,10 @@
 
 // library
 .library-container {
+  height: 250px;
+
   padding-top: 41px;
   padding-bottom: 65px;
-
-  height: auto;
 }
 
 .header-button-list {
@@ -223,11 +224,6 @@
   }
 }
 
-// #2
-// .nav-link.disabled {
-//   pointer-events: none;
-// }
-
 .header-nav-list .item-library.current::after {
   opacity: 1;
 }
@@ -250,34 +246,3 @@
 
   color: #ff001b;
 }
-
-// удалить позже, когда точно решим с кнопками
-// .btn-transparent {
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   height: 44px;
-//   text-transform: uppercase;
-//   cursor: pointer;
-
-//   background-color: transparent;
-//   color: $main-white-color;
-
-//   border: 2px solid $main-white-color;
-//   border-radius: 5px;
-
-//   font-size: $sec-font-size;
-//   font-weight: $sec-font-weight;
-//   line-height: $sec-line-height;
-
-//   &:hover,
-//   &:focus {
-//     background-color: $accent-color;
-//     color: $main-white-color;
-//     border-color: transparent;
-//     border-radius: 5px;
-//     box-shadow: (0px 8px 43px rgba(255, 107, 1, 0.6));
-//   }
-
-//   @include transition(box-shadow);
-// }
