@@ -97,18 +97,21 @@ function setBtnActiveStyle(event) {
 }
 
 const onButtonyClick = evt => {
-  if (
-    evt.target.classList.contains('js-watched-que') ||
-    evt.target.classList.contains('js-watched-btn') ||
-    evt.target.classList.contains('js-library')
-  ) {
+  console.log();
+
+  if (refs.itemLibrary.classList.contains('current')) {
     refs.pagContainer.classList.add('visually-hidden');
   } else {
     refs.pagContainer.classList.remove('visually-hidden');
   }
 };
 
+const resetPage = e => {
+  currPage = 1;
+};
+
 refs.pagination.addEventListener('click', onBtnClick);
 refs.header.addEventListener('click', onButtonyClick);
+refs.btnHome.addEventListener('click', resetPage);
 
 export { currPage };
