@@ -21,8 +21,12 @@ export default function getRefs() {
     scrollToTop: document.querySelector('#scrollTop'),
     filmGallery: document.querySelector('.gallery'),
     searchFilm: document.querySelector('.form-container'),
+
     searchField: document.querySelector('.js-input'),
     warningField: document.querySelector('.js-warning'),
+
+    searchInput: document.querySelector('.js-input'),
+
     searchResField: document.querySelector('.js-search-results'),
     gallery: document.querySelector('#gallery'),
     // pagination refs

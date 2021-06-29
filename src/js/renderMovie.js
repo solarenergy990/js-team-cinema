@@ -2,12 +2,12 @@ import MovieSearch from './apiService.js';
 import filmCardTemplate from '../templates/filmCardTemplate.hbs';
 import getRefs from './getRefs.js';
 import Spinner from './spinner.js';
+import { debounce } from 'throttle-debounce';
 
 const refs = getRefs();
 const spinner = new Spinner({
   selector: '.spinner',
 });
-
 const movieSearch = new MovieSearch();
 
 const renderMovie = async movies => {
@@ -31,29 +31,40 @@ const renderMovie = async movies => {
 
 const onSearchFilm = async e => {
   e.preventDefault();
-  console.log('onSearchFilm');
-  movieSearch.query = e.target.elements.query.value;
-  console.log(movieSearch.query);
+
+  movieSearch.query = e.target.value.trim();
+
   if (movieSearch.query === '') {
-    // movieSearch.resetPage();
-    // movieSearch.fetchPopularMovie().then(renderMovie);
-    refs.warningField.textContent = `You forgot to make a request :)`;
-    refs.searchResField.textContent = '';
+    movieSearch.resetPage();
+    movieSearch.fetchPopularMovie().then(renderMovie);
+    refs.searchResField.textContent = `You forgot to make a request :)`;
+    refs.searchResField.style.color = '#ff0000';
+    setTimeout(() => {
+      refs.searchResField.textContent = '';
+    }, 2000);
+
     return;
   }
-  // if () {
-  //   refs.warningField.textContent = `Sorry, there no results found. Try searching for something else!`;
-  // refs.searchResField.textContent = '';
-  // }
+  const request = await movieSearch.fetchMovieSearch();
 
-  refs.searchResField.textContent = `Successful! We found films by your request "${movieSearch.query}"!`;
-  refs.searchResField.style.color = '#48d610';
-  refs.warningField.textContent = '';
 
-  // refs.filmGallery.innerHTML = '';
-  // movieSearch.resetPage();
+  if (request.results.length === 0) {
+    refs.searchResField.textContent = `Sorry, there no results found. Try searching for something else!`;
+    refs.searchResField.style.color = '#ff0000';
+    // refs.searchInput.value = '';
+  } else {
+    refs.searchResField.textContent = `Successful! We found films by your request "${movieSearch.query}"!`;
+    refs.searchResField.style.color = '#48d610';
+    refs.filmGallery.innerHTML = '';
+    // refs.searchInput.value = '';
+    movieSearch.resetPage();
+    await movieSearch.fetchMovieSearch().then(renderMovie);
+  }
 
-  await movieSearch.fetchMovieSearch().then(renderMovie);
+
+  setTimeout(() => {
+    refs.searchResField.textContent = '';
+  }, 2000);
 };
 
 const onTrendingFilm = e => {
@@ -63,7 +74,7 @@ const onTrendingFilm = e => {
 };
 
 movieSearch.fetchPopularMovie().then(renderMovie);
-refs.searchFilm.addEventListener('submit', onSearchFilm);
+refs.searchFilm.addEventListener('input', debounce(1000, onSearchFilm));
 refs.btnHome.addEventListener('click', onTrendingFilm);
 
 export { renderMovie, onSearchFilm };

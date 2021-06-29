@@ -1,4 +1,5 @@
 import libraryHeaderTpl from '../templates/libraryHeaderTpl.hbs';
+import getRefs from './getRefs.js';
 
 // замена кнопок sign in и my library
 // const signIn = document.querySelector('[data-action="registerIn"]');
@@ -13,6 +14,7 @@ const homeContainer = document.querySelector('.home-container');
 const formContainer = document.querySelector('.form-container');
 const itemHome = document.querySelector('.item-home');
 const itemLibrary = document.querySelector('.item-library');
+const refs = getRefs();
 
 function onLibraryPageClick(e) {
   e.preventDefault();
@@ -21,6 +23,7 @@ function onLibraryPageClick(e) {
   renderButton();
   itemHome.classList.remove('current');
   itemLibrary.classList.add('current');
+  refs.searchResField.textContent = '';
 }
 
 function renderButton() {
