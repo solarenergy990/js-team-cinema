@@ -1,19 +1,21 @@
 import getRefs from './getRefs.js';
 import queryMovies from './queryMovies';
 import MovieSearch from './apiService.js';
-import { debounce } from 'throttle-debounce';
+import { renderMovie, onSearchFilm } from './renderMovie';
+import { debounce, throttle } from 'throttle-debounce';
 
 const movieSearch = new MovieSearch();
 const refs = getRefs();
 
 let currPage = 1;
+let currQuery = '';
 
 refs.previous.hidden = true;
 refs.dots1.hidden = true;
 
-const onBtnClick = event => {
-  if (event.target.tagName === 'BUTTON') {
-    const activeBtn = event.target.dataset.index;
+const onBtnClick = e => {
+  if (e.target.tagName === 'BUTTON') {
+    const activeBtn = e.target.dataset.index;
     currPage = Number(activeBtn);
 
     refs.previous.hidden = true;
@@ -27,7 +29,7 @@ const onBtnClick = event => {
     const previous = refs.previous;
     const next = refs.next;
 
-    if (event.target.classList.contains('next') && currPage < 999) {
+    if (e.target.classList.contains('next') && currPage < 999) {
       btns.forEach(el => el.classList.remove('active'));
       btn1.classList.add('active');
       next.dataset.index = Number(next.dataset.index) + 5;
@@ -48,9 +50,9 @@ const onBtnClick = event => {
 
     previous.dataset.index = currPage;
 
-    if (event.target.classList.contains('previous') && currPage > 5) {
+    if (e.target.classList.contains('previous') && currPage > 5) {
       next.dataset.index = Number(next.dataset.index) - 5;
-      previous.dataset.index = next.dataset.index;
+      previous.dataset.index = Number(next.dataset.index);
       btn1.textContent = Number(btn1.textContent) - 5;
       btn2.textContent = Number(btn2.textContent) - 5;
       btn3.textContent = Number(btn3.textContent) - 5;
@@ -64,10 +66,10 @@ const onBtnClick = event => {
       currPage = Number(previous.dataset.index);
       movieSearch.currentPage = currPage;
     }
-    console.log('currentPage>', currPage);
-    if (event.target.classList.contains('btn')) {
-      setBtnActiveStyle(event);
-
+    // console.log('currentPage>', currPage);
+    if (e.target.classList.contains('btn')) {
+      setBtnActiveStyle(e);
+      console.log('currentPage>', currPage);
       movieSearch.currentPage = currPage;
     }
 
@@ -94,15 +96,19 @@ function setBtnActiveStyle(event) {
   }
 }
 
-// movieSearch.currentPage();
-console.log('to set currPage', movieSearch.currentPage);
-console.log('actual currPage', currPage);
+const onButtonyClick = evt => {
+  if (
+    evt.target.classList.contains('js-watched-que') ||
+    evt.target.classList.contains('js-watched-btn') ||
+    evt.target.classList.contains('js-library')
+  ) {
+    refs.pagContainer.classList.add('visually-hidden');
+  } else {
+    refs.pagContainer.classList.remove('visually-hidden');
+  }
+};
 
 refs.pagination.addEventListener('click', onBtnClick);
-
-// refs.pagination.addEventListener(
-//   'click',
-//   debounce(e => onBtnClick(e.target.value.trim()), 500),
-// );
+refs.header.addEventListener('click', onButtonyClick);
 
 export { currPage };

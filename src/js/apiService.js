@@ -25,7 +25,7 @@ export default class MovieSearch {
 
   fetchMovieSearch() {
     return fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${this.query}`,
+      `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&include_adult=false&page=${currP}&query=${this.query}`,
     ).then(response => {
       if (response.ok) {
         // console.log(page);

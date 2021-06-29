@@ -31,6 +31,7 @@ const renderMovie = async movies => {
 
 const onSearchFilm = async e => {
   e.preventDefault();
+
   movieSearch.query = e.target.value.trim();
 
   if (movieSearch.query === '') {
@@ -41,9 +42,11 @@ const onSearchFilm = async e => {
     setTimeout(() => {
       refs.searchResField.textContent = '';
     }, 2000);
+
     return;
   }
   const request = await movieSearch.fetchMovieSearch();
+
 
   if (request.results.length === 0) {
     refs.searchResField.textContent = `Sorry, there no results found. Try searching for something else!`;
@@ -57,6 +60,7 @@ const onSearchFilm = async e => {
     movieSearch.resetPage();
     await movieSearch.fetchMovieSearch().then(renderMovie);
   }
+
 
   setTimeout(() => {
     refs.searchResField.textContent = '';
