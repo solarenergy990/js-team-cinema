@@ -31,7 +31,7 @@ const renderMovie = async movies => {
 
 const onSearchFilm = async e => {
   e.preventDefault();
-  movieSearch.query = e.target.elements.query.value.trim();
+  movieSearch.query = e.target.value.trim();
 
   if (movieSearch.query === '') {
     movieSearch.resetPage();
@@ -41,18 +41,19 @@ const onSearchFilm = async e => {
     setTimeout(() => {
       refs.searchResField.textContent = '';
     }, 2000);
+    return;
   }
   const request = await movieSearch.fetchMovieSearch();
 
   if (request.results.length === 0) {
     refs.searchResField.textContent = `Sorry, there no results found. Try searching for something else!`;
     refs.searchResField.style.color = '#ff0000';
-    refs.searchInput.value = '';
+    // refs.searchInput.value = '';
   } else {
     refs.searchResField.textContent = `Successful! We found films by your request "${movieSearch.query}"!`;
     refs.searchResField.style.color = '#48d610';
     refs.filmGallery.innerHTML = '';
-    refs.searchInput.value = '';
+    // refs.searchInput.value = '';
     movieSearch.resetPage();
     await movieSearch.fetchMovieSearch().then(renderMovie);
   }
@@ -69,7 +70,7 @@ const onTrendingFilm = e => {
 };
 
 movieSearch.fetchPopularMovie().then(renderMovie);
-refs.searchFilm.addEventListener('submit', onSearchFilm);
+refs.searchFilm.addEventListener('input', debounce(1000, onSearchFilm));
 refs.btnHome.addEventListener('click', onTrendingFilm);
 
 export { renderMovie, onSearchFilm };
