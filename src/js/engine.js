@@ -8,6 +8,7 @@ let checkID = null;
 const onWatchedLibraryClick = evt => {
   if (evt.target.classList.contains('js-watched-btn')) {
     renderWatchedBtn();
+
   }
 };
 
@@ -25,15 +26,20 @@ refs.btnMyLibrary.addEventListener('click', () => {
   refs.containerWatchedFilms.innerHTML = ' ';
 });
 
-function renderWatchedBtn() {
+async function renderWatchedBtn() {
   refs.containerWatchedFilms.innerHTML = ' ';
-  db.collection('watched')
+  await db.collection('watched')
     .get()
     .then(querySnapshot => {
       querySnapshot.forEach(doc => {
         renderWatched(doc);
       });
     });
+}
+
+function onBtnDelete(id, collection) {
+  const btnDelete = document.querySelector(`[data-film="${id}"]`)
+  return btnDelete
 }
 
 function renderQueueBtn() {
@@ -47,17 +53,36 @@ function renderQueueBtn() {
     });
 }
 
-const renderWatched = doc => {
-  console.log(doc.id);
-  const addDeleteByIdClick = evt => {
-    if (evt.target.classList.contains(`js-add-to-delete`)) {
-      addDeleteById();
-    }
+const renderWatched = async doc => {
+  const li = await filmCard(doc.data());
+  await refs.containerWatchedFilms.insertAdjacentHTML('beforeend', li);
+  const id = await doc.data().id;
+  const btnRefs = onBtnDelete(id, doc.collection);
+  const addDeleteWatchedByIdClick = (e) => {
+    if (e.target.classList.value === 'watched btnremove') {
+      addDeleteWatchedById();
+    } else if (e.target.classList.value === 'queue btnremove') {
+      addDeleteQueueById()
+    };
   };
-  addEventListener('click', addDeleteByIdClick);
-  function addDeleteById() {
-    console.log('delete');
+  function addDeleteWatchedById() {
+    db.collection('watched')
+      .doc(`${doc.id}`)
+      .delete()
+      .then(() => {
+        renderWatchedBtn()
+      })
+      .catch(error => console.log('error doc', error));
   }
-  const li = filmCard(doc.data());
-  refs.containerWatchedFilms.insertAdjacentHTML('beforeend', li);
+
+  function addDeleteQueueById() {
+    db.collection('queue')
+      .doc(`${doc.id}`)
+      .delete()
+      .then(() => {
+        renderQueueBtn()
+      })
+      .catch(error => console.log('error doc', error));
+  }
+  btnRefs.addEventListener('click', addDeleteWatchedByIdClick)
 };

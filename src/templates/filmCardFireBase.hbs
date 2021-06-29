@@ -1,18 +1,12 @@
 <li class='gallery-item-card' data-id='{{this.id}}'>
+  <button type='button' class='{{this.collection}} btnremove' data-film={{this.id}}>X</button>
   <div class='card'>
     <div class='poster-container'>
       {{#if poster_path}}
-        <img
-          class='poster'
-          data-source='https://image.tmdb.org/t/p/w500{{this.backdrop_path}}'
-          alt='{{this.title}}'
-          src='https://image.tmdb.org/t/p/w500{{this.poster_path}}'
-        />
+      <img class='poster' data-source='https://image.tmdb.org/t/p/w500{{this.backdrop_path}}' alt='{{this.title}}'
+        src='https://image.tmdb.org/t/p/w500{{this.poster_path}}' />
       {{else}}
-        <img
-          src='https://cdn.pixabay.com/photo/2015/09/09/17/51/film-932154_960_720.jpg'
-          alt='{{original_title}}'
-        />
+      <img src='https://cdn.pixabay.com/photo/2015/09/09/17/51/film-932154_960_720.jpg' alt='{{original_title}}' />
 
       {{/if}}
     </div>
@@ -23,5 +17,6 @@
         <p class='text-rating is-hidden'>{{this.vote_average}}</p>
       </div>
     </div>
+
   </div>
 </li>
