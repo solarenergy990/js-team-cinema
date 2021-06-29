@@ -1,12 +1,12 @@
 import filmCard from '../templates/filmCardFirebase.hbs';
 import getRefs from './getRefs';
+import { successNotificationWatchedRemove, successNotificationQueueRemove } from './pnotify';
 
 const refs = getRefs();
 
 const onWatchedLibraryClick = evt => {
   if (evt.target.classList.contains('js-watched-btn')) {
     renderWatchedBtn();
-
   }
 };
 
@@ -26,7 +26,8 @@ refs.btnMyLibrary.addEventListener('click', () => {
 
 async function renderWatchedBtn() {
   refs.containerWatchedFilms.innerHTML = ' ';
-  await db.collection('watched')
+  await db
+    .collection('watched')
     .get()
     .then(querySnapshot => {
       querySnapshot.forEach(doc => {
@@ -36,8 +37,8 @@ async function renderWatchedBtn() {
 }
 
 function onBtnDelete(id, collection) {
-  const btnDelete = document.querySelector(`[data-film="${id}"]`)
-  return btnDelete
+  const btnDelete = document.querySelector(`[data-film="${id}"]`);
+  return btnDelete;
 }
 
 function renderQueueBtn() {
@@ -56,12 +57,12 @@ const renderWatched = async doc => {
   await refs.containerWatchedFilms.insertAdjacentHTML('beforeend', li);
   const id = await doc.data().id;
   const btnRefs = onBtnDelete(id, doc.collection);
-  const addDeleteWatchedByIdClick = (e) => {
+  const addDeleteWatchedByIdClick = e => {
     if (e.target.classList.value === 'watched btnremove') {
       addDeleteWatchedById();
     } else if (e.target.classList.value === 'queue btnremove') {
-      addDeleteQueueById()
-    };
+      addDeleteQueueById();
+    }
   };
 
   function addDeleteWatchedById() {
@@ -69,7 +70,8 @@ const renderWatched = async doc => {
       .doc(`${doc.id}`)
       .delete()
       .then(() => {
-        renderWatchedBtn()
+        renderWatchedBtn();
+        successNotificationWatchedRemove();
       })
       .catch(error => console.log('error doc', error));
   }
@@ -79,9 +81,10 @@ const renderWatched = async doc => {
       .doc(`${doc.id}`)
       .delete()
       .then(() => {
-        renderQueueBtn()
+        renderQueueBtn();
+        successNotificationQueueRemove();
       })
       .catch(error => console.log('error doc', error));
   }
-  btnRefs.addEventListener('click', addDeleteWatchedByIdClick)
+  btnRefs.addEventListener('click', addDeleteWatchedByIdClick);
 };

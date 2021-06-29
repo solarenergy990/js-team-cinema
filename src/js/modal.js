@@ -1,5 +1,10 @@
 import MovieSearch from './apiService.js';
 import modalMovieTemplate from '../templates/modalMovieTemplate.hbs';
+import {
+  successNotificationWatched,
+  successNotificationQueue,
+  errorNotificationRepeatFilm,
+} from './pnotify';
 
 const movieSearch = new MovieSearch();
 const GENRES = [];
@@ -106,6 +111,9 @@ function addWatchedById() {
           release_date: movieDetailsGlobal.release_date,
           vote_average: movieDetailsGlobal.vote_average,
         });
+        successNotificationWatched();
+      } else {
+        errorNotificationRepeatFilm();
       }
     });
   closeModal();
@@ -129,6 +137,9 @@ function addQueueById() {
           release_date: movieDetailsGlobal.release_date,
           vote_average: movieDetailsGlobal.vote_average,
         });
+        successNotificationQueue();
+      } else {
+        errorNotificationRepeatFilm();
       }
     });
   closeModal();
