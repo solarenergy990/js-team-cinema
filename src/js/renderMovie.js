@@ -41,12 +41,11 @@ const onSearchFilm = async e => {
     refs.searchResField.style.color = '#ff0000';
     setTimeout(() => {
       refs.searchResField.textContent = '';
-    }, 2000);
+    }, 3000);
 
     return;
   }
   const request = await movieSearch.fetchMovieSearch();
-
 
   if (request.results.length === 0) {
     refs.searchResField.textContent = `Sorry, there no results found. Try searching for something else!`;
@@ -61,10 +60,9 @@ const onSearchFilm = async e => {
     await movieSearch.fetchMovieSearch().then(renderMovie);
   }
 
-
   setTimeout(() => {
     refs.searchResField.textContent = '';
-  }, 2000);
+  }, 3000);
 };
 
 const onTrendingFilm = e => {

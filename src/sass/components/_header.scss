@@ -233,12 +233,13 @@
 }
 .header-warning {
   position: absolute;
-  top: 155px;
+  top: 170px;
+  // margin-top: 25px;
 
   font-size: 14px;
   line-height: 1.14;
 
-  @media screen and (min-width: 720px) {
+  @media screen and (min-width: 768px) {
     width: 616px;
     text-align: center;
   }
