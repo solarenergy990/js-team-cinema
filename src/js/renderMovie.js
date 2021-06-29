@@ -12,6 +12,9 @@ const movieSearch = new MovieSearch();
 
 const renderMovie = async movies => {
   const films = movies.results;
+  if (films.length < 20) {
+    refs.loadMoreBtn.classList.add('visually-hidden');
+  }
   const genres = await movieSearch.fetchGenresMovie();
   spinner.enable();
   films.map(film => {
@@ -30,7 +33,7 @@ const renderMovie = async movies => {
 };
 
 const onSearchFilm = async e => {
-  e.preventDefault();
+  // e.preventDefault();
 
   movieSearch.query = e.target.value.trim();
 
@@ -46,11 +49,23 @@ const onSearchFilm = async e => {
     return;
   }
   const request = await movieSearch.fetchMovieSearch();
+  // console.log(request);
+  refs.pagContainer.classList.add('visually-hidden');
 
+  if (request.total_pages > 1) {
+    // console.log(refs.gallery.textContent);
+    // refs.pagContainer.classList.add('visually-hidden');
+    refs.loadMoreBtn.classList.remove('visually-hidden');
+  } else {
+    // refs.pagContainer.classList.add('visually-hidden');
+    // refs.pagContainer.classList.remove('visually-hidden');
+    refs.loadMoreBtn.classList.add('visually-hidden');
+  }
 
   if (request.results.length === 0) {
     refs.searchResField.textContent = `Sorry, there no results found. Try searching for something else!`;
     refs.searchResField.style.color = '#ff0000';
+    // refs.loadMoreBtn.classList.remove('visually-hidden');
     // refs.searchInput.value = '';
   } else {
     refs.searchResField.textContent = `Successful! We found films by your request "${movieSearch.query}"!`;
@@ -61,13 +76,13 @@ const onSearchFilm = async e => {
     await movieSearch.fetchMovieSearch().then(renderMovie);
   }
 
-
   setTimeout(() => {
     refs.searchResField.textContent = '';
   }, 2000);
 };
 
 const onTrendingFilm = e => {
+  refs.searchInput.value = '';
   refs.filmGallery.innerHTML = '';
   movieSearch.resetPage();
   movieSearch.fetchPopularMovie().then(renderMovie);

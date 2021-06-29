@@ -20,7 +20,7 @@ const onSearchInput = e => {
   //   }
 
   movieSearch.currentPage = page;
-  console.log('elem', e.target.value);
+  // console.log('elem', e.target.value);
   query = e.target.value;
   //   currQuery = e.target;
 
@@ -34,18 +34,20 @@ const onSearchInput = e => {
   }
   queryArr.reverse();
 
-  if (query.length > 0) {
-    refs.pagContainer.classList.add('visually-hidden');
-    refs.loadMoreBtn.classList.remove('visually-hidden');
-  } else {
-    refs.pagContainer.classList.remove('visually-hidden');
-    refs.loadMoreBtn.classList.add('visually-hidden');
-  }
+  // if (query.length > 0 && request.total_pages > 1) {
+  //   // console.log(refs.gallery.textContent);
+  //   refs.pagContainer.classList.add('visually-hidden');
+  //   refs.loadMoreBtn.classList.remove('visually-hidden');
+  // } else {
+  //   refs.pagContainer.classList.add('visually-hidden');
+  //   // refs.pagContainer.classList.remove('visually-hidden');
+  //   refs.loadMoreBtn.classList.add('visually-hidden');
+  // }
 
   if (page === 1) {
     refs.gallery.innerHTML = '';
   }
-  console.log(refs.searchField.value);
+  // console.log(refs.searchField.value);
   if (refs.searchField.value === '') {
     refs.gallery.innerHTML = '';
     refs.pagContainer.classList.remove('visually-hidden');
@@ -64,12 +66,14 @@ const onLoadMore = e => {
   e.preventDefault();
 
   page += 1;
-  console.log('page', page);
+  // console.log('page', page);
 
-  //   refs.filmGallery.innerHTML = '';
+  refs.filmGallery.innerHTML = '';
   movieSearch.currentPage = page;
   movieSearch.query = query;
+  // onSearchFilm(movieSearch.query);
   movieSearch.fetchMovieSearch().then(renderMovie);
+  refs.header.scrollIntoView({ behavior: 'smooth' });
 };
 
 // const moveTo = () => {

@@ -9,18 +9,22 @@ const refs = getRefs();
 const element = refs.containerWatchedFilms;
 
 function queryMovies(e) {
-  console.log('this is moviesearch query');
+  // console.log('this is moviesearch query');
 
-  if (movieSearch.query != '') {
+  if (movieSearch.query === '') {
+    refs.filmGallery.innerHTML = '';
+
+    movieSearch.fetchPopularMovie().then(renderMovie);
+
     // movieSearch.resetPage();
     // refs.filmGallery.innerHTML = '';
     // console.log('this is moviesearch query', movieSearch.query);
     // onSearchFilm();
   } else {
     // e.preventDefault();
-    refs.filmGallery.innerHTML = '';
+    // refs.filmGallery.innerHTML = '';
     // movieSearch.resetPage();
-    movieSearch.fetchPopularMovie().then(renderMovie);
+    // movieSearch.fetchPopularMovie().then(renderMovie);
   }
 }
 
