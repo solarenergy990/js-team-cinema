@@ -42,5 +42,10 @@ export default function getRefs() {
     dots1: document.querySelector('.js-dots1'),
     dots2: document.querySelector('.js-dots2'),
     loadMoreBtn: document.querySelector('.load-more-btn'),
+    // some of header refs
+    homeBgcContainer: document.querySelector('.js-bg-home'),
+    homeContainer: document.querySelector('.home-container'),
+    itemHome: document.querySelector('.item-home'),
+    itemLibrary: document.querySelector('.item-library'),
   };
 }

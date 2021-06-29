@@ -44,13 +44,14 @@ const onSearchFilm = async e => {
     refs.searchResField.style.color = '#ff0000';
     setTimeout(() => {
       refs.searchResField.textContent = '';
-    }, 2000);
+    }, 3000);
 
     return;
   }
   const request = await movieSearch.fetchMovieSearch();
   // console.log(request);
   refs.pagContainer.classList.add('visually-hidden');
+
 
   if (request.total_pages > 1) {
     // console.log(refs.gallery.textContent);
@@ -61,6 +62,7 @@ const onSearchFilm = async e => {
     // refs.pagContainer.classList.remove('visually-hidden');
     refs.loadMoreBtn.classList.add('visually-hidden');
   }
+
 
   if (request.results.length === 0) {
     refs.searchResField.textContent = `Sorry, there no results found. Try searching for something else!`;
@@ -78,7 +80,7 @@ const onSearchFilm = async e => {
 
   setTimeout(() => {
     refs.searchResField.textContent = '';
-  }, 2000);
+  }, 3000);
 };
 
 const onTrendingFilm = e => {
