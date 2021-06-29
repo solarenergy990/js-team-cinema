@@ -22,8 +22,9 @@ function onGalleryClick(event) {
   event.preventDefault();
   refs.filmCard.innerHTML = '';
   const isGallery = event.target.classList.contains('gallery');
+  const isBtn = event.target.classList.contains('btnremove');
 
-  if (isGallery) {
+  if (isGallery || isBtn) {
     return;
   }
 
@@ -96,6 +97,7 @@ function addWatchedById() {
       const isExist = ids.some(id => id === movieDetailsGlobal.id);
       if (!isExist) {
         db.collection('watched').add({
+          collection: 'watched',
           id: movieDetailsGlobal.id,
           poster_path: movieDetailsGlobal.poster_path,
           backdrop_path: movieDetailsGlobal.backdrop_path,
@@ -118,6 +120,7 @@ function addQueueById() {
       const isExist = ids.some(id => id === movieDetailsGlobal.id);
       if (!isExist) {
         db.collection('queue').add({
+          collection: 'queue',
           id: movieDetailsGlobal.id,
           poster_path: movieDetailsGlobal.poster_path,
           backdrop_path: movieDetailsGlobal.backdrop_path,

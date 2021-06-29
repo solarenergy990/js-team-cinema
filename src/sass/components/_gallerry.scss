@@ -76,6 +76,7 @@ img {
   }
 }
 .gallery-item-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -135,7 +136,7 @@ img {
   }
 }
 .poster-container:hover,
-.poster-container:focus {
+.poster-container:hover {
   transition: 250ms;
   box-shadow: 0 0 20px rgba(250, 119, 12, 0.897);
 }
@@ -194,16 +195,17 @@ img {
   border-radius: 5px;
 }
 
-// .btnremove {
-//   position: absolute;
-//   top: -10px;
-//   right: -10px;
-//   cursor: pointer;
+.btnremove {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
 
-//   display: none;
+  // display: none;
 
-//   border-radius: 50%;
-//   border: none;
-//   background-color: black;
-//   color: white;
-// }
+  border-radius: 50%;
+  border: none;
+  background-color: black;
+  color: white;
+}
