@@ -31,7 +31,7 @@ export default function getRefs() {
     gallery: document.querySelector('#gallery'),
     // pagination refs
     pagContainer: document.querySelector('.pagination-style'),
-    pagination: document.querySelector('.pagination'),
+    pagination: document.querySelector('.pagination-style'),
     btnPage1: document.querySelector('.btn-page1'),
     btnPage2: document.querySelector('.btn-page2'),
     btnPage3: document.querySelector('.btn-page3'),
