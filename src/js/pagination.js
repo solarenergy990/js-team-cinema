@@ -69,10 +69,10 @@ const onBtnClick = e => {
     // console.log('currentPage>', currPage);
     if (e.target.classList.contains('btn')) {
       setBtnActiveStyle(e);
-      console.log('currentPage>', currPage);
+      // console.log('currentPage>', currPage);
       movieSearch.currentPage = currPage;
     }
-
+    refs.header.scrollIntoView({ behavior: 'smooth' });
     queryMovies();
   }
 
