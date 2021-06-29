@@ -24,6 +24,12 @@
     &__icon {
       margin-left: 10px;
       margin-right: 10px;
+
+      &:hover {
+        transform: scale(1.25);
+      }
+
+      @include transition(transform);
     }
   }
 
