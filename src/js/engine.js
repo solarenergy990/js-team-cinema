@@ -13,7 +13,6 @@ const onWatchedLibraryClick = evt => {
 
 addEventListener('click', onWatchedLibraryClick);
 
-
 const onQueueLibraryClick = evt => {
   if (evt.target.classList.contains('js-watched-que')) {
     renderQueueBtn();
@@ -22,21 +21,26 @@ const onQueueLibraryClick = evt => {
 
 addEventListener('click', onQueueLibraryClick);
 
-
 refs.btnMyLibrary.addEventListener('click', () => {
   refs.containerWatchedFilms.innerHTML = ' ';
   renderWatchedBtn();
 });
 
-function renderWatchedBtn() {
+async function renderWatchedBtn() {
   refs.containerWatchedFilms.innerHTML = ' ';
-  db.collection('watched')
+  await db
+    .collection('watched')
     .get()
     .then(querySnapshot => {
       querySnapshot.forEach(doc => {
         renderWatched(doc);
       });
     });
+}
+
+function onBtnDelete(id) {
+  const btnDelete = document.querySelector(`[data-film="${id}"]`);
+  return btnDelete;
 }
 
 function renderQueueBtn() {
@@ -49,34 +53,38 @@ function renderQueueBtn() {
       });
     });
 }
+// let btnId = '';
+const renderWatched = async doc => {
+  const li = await filmCard(doc.data());
+  await refs.containerWatchedFilms.insertAdjacentHTML('beforeend', li);
+  const id = await doc.data().id;
+  const btnRefs = onBtnDelete(id);
 
-const renderWatched = doc => {
-  checkID = doc;
-  // console.log(doc.id);
-  // const addDeleteByIdClick = evt => {
-  //   if (evt.target.classList.contains(`js-add-to-delete`)) {
-  //     addDeleteById();
-  //   }
-  // };
-  // addEventListener('click', addDeleteByIdClick);
-  // function addDeleteById() {
-  //   console.log('delete');
-  // }
-  const li = filmCard(doc.data());
-  refs.containerWatchedFilms.insertAdjacentHTML('beforeend', li);
-
-  // // Click delete user 
-  // // const btnDelete = document.querySelector(`[data-id='${doc.id}'] .btn-delete`)
-  // // btnDelete.addEventListener('click', () => {
-  // //   console.log(doc.id)
-  // })
+  const addDeleteByIdClick = evt => {
+    addDeleteByIdWatched();
+    addDeleteByIdQueue();
+  };
+  function addDeleteByIdWatched() {
+    db.collection('watched')
+      .doc(`${doc.id}`)
+      .delete()
+      .then(() => {
+        console.log('delete doc');
+        renderWatchedBtn();
+      })
+      .catch(error => console.log('error doc', error));
+    console.log('delete');
+  }
+  function addDeleteByIdQueue() {
+    db.collection('queue')
+      .doc(`${doc.id}`)
+      .delete()
+      .then(() => {
+        console.log('delete doc');
+        renderQueueBtn();
+      })
+      .catch(error => console.log('error doc', error));
+    console.log('delete');
+  }
+  btnRefs.addEventListener('click', addDeleteByIdClick);
 };
-
-
-// const onWatchedLibraryClick = evt => {
-//   if (evt.target.classList.contains('js-watched-btn')) {
-//     renderWatchedBtn();
-//   }
-// };
-
-// addEventListener('click', onWatchedLibraryClick);

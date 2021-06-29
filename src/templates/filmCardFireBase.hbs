@@ -23,6 +23,11 @@
         <p class='text-rating is-hidden'>{{this.vote_average}}</p>
       </div>
     </div>
-    <button type='button' class='btnremove btn-delete'>X</button>
-  </div>  
+    <button
+      type='button'
+      class='btnremove js-btn-delete'
+      data-film='{{this.id}}'
+      id='btn-delete'
+    >X</button>
+  </div>
 </li>
