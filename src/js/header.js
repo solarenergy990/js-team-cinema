@@ -16,6 +16,7 @@ function onLibraryPageClick(e) {
   refs.itemHome.classList.remove('current');
   refs.itemLibrary.classList.add('current');
   refs.searchResField.textContent = '';
+  refs.searchInput.value = '';
 }
 
 function renderButton() {
