@@ -35,8 +35,8 @@ const onSearchFilm = async e => {
   movieSearch.query = e.target.elements.query.value;
   console.log(movieSearch.query);
   if (movieSearch.query === '') {
-    movieSearch.resetPage();
-    movieSearch.fetchPopularMovie().then(renderMovie);
+    // movieSearch.resetPage();
+    // movieSearch.fetchPopularMovie().then(renderMovie);
     refs.warningField.textContent = `You forgot to make a request :)`;
     refs.searchResField.textContent = '';
     return;
@@ -50,8 +50,8 @@ const onSearchFilm = async e => {
   refs.searchResField.style.color = '#48d610';
   refs.warningField.textContent = '';
 
-  refs.filmGallery.innerHTML = '';
-  movieSearch.resetPage();
+  // refs.filmGallery.innerHTML = '';
+  // movieSearch.resetPage();
 
   await movieSearch.fetchMovieSearch().then(renderMovie);
 };

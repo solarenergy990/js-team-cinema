@@ -13,23 +13,15 @@ function queryMovies(e) {
 
   if (movieSearch.query != '') {
     // movieSearch.resetPage();
-    refs.filmGallery.innerHTML = '';
-    console.log('this is moviesearch query', movieSearch.query);
-    movieSearch.onSearchFilm();
+    // refs.filmGallery.innerHTML = '';
+    // console.log('this is moviesearch query', movieSearch.query);
+    // onSearchFilm();
   } else {
     // e.preventDefault();
     refs.filmGallery.innerHTML = '';
     // movieSearch.resetPage();
-    movieSearch.fetchPopularMovie().then(renderMovie).then(moveTo);
+    movieSearch.fetchPopularMovie().then(renderMovie);
   }
 }
-
-const moveTo = () => {
-  element.scrollIntoView({
-    behavior: 'smooth',
-    block: 'start',
-    inline: 'start',
-  });
-};
 
 export default queryMovies;
