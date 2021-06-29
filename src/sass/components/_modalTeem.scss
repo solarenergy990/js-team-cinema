@@ -1,0 +1,53 @@
+.teem-container {
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.19;
+  }
+}
+
+.modal-img {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url('../images/teem.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px;
+  color: $main-white-color;
+}
+
+.backdrop-teem {
+  overflow-y: hidden;
+}
+
+.close-button-light {
+  fill: $footer-text-color;
+}
+
+.teem-title {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.teem-item-style {
+  margin-left: 10px;
+}
+
+.teem-item-link {
+  color: $main-white-color;
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+  @include transition(color);
+}
+
+.teem-members {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.teem-members-list {
+  text-align: center;
+}

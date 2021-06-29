@@ -10,3 +10,4 @@ import './js/pagination';
 import './js/theme';
 import './js/engine';
 import './js/to-top';
+import './js/modalTeem';
