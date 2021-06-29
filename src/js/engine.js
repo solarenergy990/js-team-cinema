@@ -2,8 +2,6 @@ import filmCard from '../templates/filmCardFirebase.hbs';
 import getRefs from './getRefs';
 
 const refs = getRefs();
-let checkID = null;
-//create element and render library 'watched' films
 
 const onWatchedLibraryClick = evt => {
   if (evt.target.classList.contains('js-watched-btn')) {
@@ -65,6 +63,7 @@ const renderWatched = async doc => {
       addDeleteQueueById()
     };
   };
+
   function addDeleteWatchedById() {
     db.collection('watched')
       .doc(`${doc.id}`)
