@@ -1,7 +1,9 @@
 .teem-container {
+  color: $main-white-color;
   @media screen and (min-width: 768px) {
     font-size: 16px;
     line-height: 1.19;
+    padding: 30px;
   }
 }
 
@@ -12,7 +14,6 @@
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 5px;
-  color: $main-white-color;
 }
 
 .backdrop-teem {
