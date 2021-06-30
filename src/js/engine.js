@@ -47,7 +47,7 @@ function onBtnDelete(id, collection) {
     btnDelete: document.querySelector(`[data-film="${id}"]`),
     watched: document.querySelector('.js-watched-btn'),
     queue: document.querySelector('.js-watched-que'),
-  };
+  }
   return refs;
 }
 
@@ -99,4 +99,4 @@ const renderWatched = async doc => {
   btnRefs.btnDelete.addEventListener('click', addDeleteWatchedByIdClick);
 };
 
-export { renderWatchedBtn, renderQueueBtn };
+export {renderWatchedBtn, renderQueueBtn}
