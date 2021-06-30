@@ -1,12 +1,4 @@
-import {renderButton} from "./header";
-// import { renderWatchedBtn, renderQueueBtn } from "./engine";
-import getRefs from "./getRefs";
-import { renderQueueCollection } from "./add-queue";
-import { renderWatchedCollection } from "./add-watched";
-// import { homeLinkIsActive, libraryLinkIsActive } from "./activeMenuLink";
-// import renderSearchInput from "./renderSearchInput";
-
-const refs = getRefs()
+import {  } from "./watchedCollection";
 
 const Link = {
   HOME: 'home-bgc-container',
@@ -14,7 +6,7 @@ const Link = {
 };
 
 let linkData = '';
-const onChangeCollection = e => { 
+const filmsCollection = e => { 
     if (e.target.classList.contains('js-library')) {
         linkData = Link.LIBRARY;
         refs.homeBgcContainer.classList.replace(Link.HOME, Link.LIBRARY);
@@ -27,7 +19,7 @@ const onChangeCollection = e => {
     localStorage.setItem('link', linkData);  
 };
 
-const savedLink = () => {
+const savedCollection = () => {
     const currentLink = localStorage.getItem('link');
     refs.homeBgcContainer.classList.add(currentLink);
     if (currentLink === Link.LIBRARY) {
@@ -45,5 +37,4 @@ const savedLink = () => {
     };
 };
 
-export { onChangeCollection, savedLink };
-
+export { filmsCollection, savedCollection };
