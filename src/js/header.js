@@ -1,5 +1,7 @@
 import libraryHeaderTpl from '../templates/libraryHeaderTpl.hbs';
 import getRefs from './getRefs.js';
+import { onChangeCollection } from "./link-to-localstorage";
+import { renderWatchedBtn } from "./engine";
 
 // замена кнопок sign in и my library
 // const signIn = document.querySelector('[data-action="registerIn"]');
@@ -17,6 +19,10 @@ function onLibraryPageClick(e) {
   refs.itemLibrary.classList.add('current');
   refs.searchResField.textContent = '';
   refs.searchInput.value = '';
+  renderWatchedBtn()
+  onChangeCollection(e)
+  // refs.btnHome.addEventListener('click', onHomePageClick);
+  // refs.logo.addEventListener('click', onHomePageClick);
 }
 
 function renderButton() {
@@ -29,13 +35,13 @@ function renderButton() {
 
 function onHomePageClick(e) {
   e.preventDefault();
-  if (!refs.homeContainer.classList.contains('library-container')) {
+  if (!refs.homeBgcContainer.classList.contains('library-bgc-container')) {
     return;
   }
   refs.homeContainer.classList.replace('library-container', 'home-container');
   refs.homeBgcContainer.classList.replace('library-bgc-container', 'home-bgc-container');
   renderSearchInput();
-
+  onChangeCollection(e);
   refs.itemLibrary.classList.remove('current');
   refs.itemHome.classList.add('current');
 }
@@ -57,5 +63,7 @@ function renderSearchInput() {
 
 refs.btnMyLibrary.addEventListener('click', onLibraryPageClick);
 refs.btnHome.addEventListener('click', onHomePageClick);
+refs.logo.addEventListener('click', onHomePageClick);
 // signIn.addEventListener('click', onSignInBtnClick);
 // headerBtnSignUp.addEventListener('click', onSignUpBtnClick);
+export { renderButton, onLibraryPageClick };
