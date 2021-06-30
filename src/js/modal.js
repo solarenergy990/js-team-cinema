@@ -1,5 +1,7 @@
 import MovieSearch from './apiService.js';
 import modalMovieTemplate from '../templates/modalMovieTemplate.hbs';
+import { onBtnWatchedClick } from "./add-watched";
+import { onBtnQueueClick } from "./add-queue";
 import {
   successNotificationWatched,
   successNotificationQueue,
@@ -8,7 +10,7 @@ import {
 
 const movieSearch = new MovieSearch();
 const GENRES = [];
-let movieDetailsGlobal = null;
+// let movieDetailsGlobal = null;
 const refs = {
   filmCard: document.querySelector('.movie-card'),
   movieCardContainer: document.querySelector('.gallery'),
@@ -17,13 +19,14 @@ const refs = {
   body: document.querySelector('body'),
   backdropMoviecard: document.querySelector('.backdrop-movie-card'),
 
-  btnWatched: document.querySelector('#add-to-watched'),
-  btnQueue: document.querySelector('#add-to-queue'),
+  // btnWatched: document.querySelector('#add-to-watched'),
+  // btnQueue: document.querySelector('#add-to-queue'),
 };
 
 refs.movieCardContainer.addEventListener('click', onGalleryClick);
 
-function onGalleryClick(event) {
+let isMovieId = null
+async function onGalleryClick(event) {
   event.preventDefault();
   refs.filmCard.innerHTML = '';
   const isGallery = event.target.classList.contains('gallery');
@@ -34,8 +37,12 @@ function onGalleryClick(event) {
   }
 
   openModal();
-  const isMovieId = event.target.closest('li').getAttribute('data-id');
-  movieSearch.fetchDetailsMovie(isMovieId).then(renderModalMovie);
+  isMovieId = await event.target.closest('li').getAttribute('data-id');
+  await movieSearch.fetchDetailsMovie(isMovieId).then(renderModalMovie);
+  const btnRefs = getModalRefs();
+  // console.log(btnRefs)
+  btnRefs.btnWatched.addEventListener('click', onBtnWatchedClick);
+  btnRefs.btnQueue.addEventListener('click', onBtnQueueClick)
 }
 
 function openModal() {
@@ -66,8 +73,18 @@ function onKeyPress(event) {
   }
 }
 
+function getModalRefs() {
+    const modalRefs = {
+        btnWatched: document.querySelector('#add-to-watched'),
+        btnQueue: document.querySelector('#add-to-queue'),
+    }
+    return modalRefs;
+}
+
+let movieId = '';
 function renderModalMovie(movie) {
-  movieDetailsGlobal = movie;
+  movieId = movie;
+  // movieDetailsGlobal = movie;
   const movieDetails = movie;
   movieDetails.popularity = movieDetails.popularity.toFixed(1);
   movieDetails.genres = movieDetails.genres.map(genre => {
@@ -77,70 +94,76 @@ function renderModalMovie(movie) {
   refs.filmCard.insertAdjacentHTML('beforeend', cardMarkup);
 }
 
-const addWatchedByIdClick = evt => {
-  if (evt.target.classList.contains('js-add-to-watched')) {
-    addWatchedById();
-  }
-};
-
-addEventListener('click', addWatchedByIdClick);
-
-const addQueueByIdClick = evt => {
-  if (evt.target.classList.contains('js-add-to-queue')) {
-    addQueueById();
-  }
-};
-
-addEventListener('click', addQueueByIdClick);
-
-function addWatchedById() {
-  db.collection('watched')
-    .get()
-    .then(querySnapshot => {
-      const ids = [];
-      querySnapshot.forEach(doc => ids.push(doc.data().id));
-      const isExist = ids.some(id => id === movieDetailsGlobal.id);
-      if (!isExist) {
-        db.collection('watched').add({
-          collection: 'watched',
-          id: movieDetailsGlobal.id,
-          poster_path: movieDetailsGlobal.poster_path,
-          backdrop_path: movieDetailsGlobal.backdrop_path,
-          original_title: movieDetailsGlobal.original_title,
-          genre_ids: movieDetailsGlobal.genres.map(a => a),
-          release_date: movieDetailsGlobal.release_date,
-          vote_average: movieDetailsGlobal.vote_average,
-        });
-        successNotificationWatched();
-      } else {
-        errorNotificationRepeatFilm();
-      }
-    });
-  closeModal();
+function getMovieId() {
+    return isMovieId
 }
 
-function addQueueById() {
-  db.collection('queue')
-    .get()
-    .then(querySnapshot => {
-      const ids = [];
-      querySnapshot.forEach(doc => ids.push(doc.data().id));
-      const isExist = ids.some(id => id === movieDetailsGlobal.id);
-      if (!isExist) {
-        db.collection('queue').add({
-          collection: 'queue',
-          id: movieDetailsGlobal.id,
-          poster_path: movieDetailsGlobal.poster_path,
-          backdrop_path: movieDetailsGlobal.backdrop_path,
-          original_title: movieDetailsGlobal.original_title,
-          genre_ids: movieDetailsGlobal.genres.map(a => a),
-          release_date: movieDetailsGlobal.release_date,
-          vote_average: movieDetailsGlobal.vote_average,
-        });
-        successNotificationQueue();
-      } else {
-        errorNotificationRepeatFilm();
-      }
-    });
-  closeModal();
-}
+export { getMovieId, closeModal }
+
+// const addWatchedByIdClick = evt => {
+//   if (evt.target.classList.contains('js-add-to-watched')) {
+//     addWatchedById();
+//   }
+// };
+
+// addEventListener('click', addWatchedByIdClick);
+
+// const addQueueByIdClick = evt => {
+//   if (evt.target.classList.contains('js-add-to-queue')) {
+//     addQueueById();
+//   }
+// };
+
+// addEventListener('click', addQueueByIdClick);
+
+// function addWatchedById() {
+//   db.collection('watched')
+//     .get()
+//     .then(querySnapshot => {
+//       const ids = [];
+//       querySnapshot.forEach(doc => ids.push(doc.data().id));
+//       const isExist = ids.some(id => id === movieDetailsGlobal.id);
+//       if (!isExist) {
+//         db.collection('watched').add({
+//           collection: 'watched',
+//           id: movieDetailsGlobal.id,
+//           poster_path: movieDetailsGlobal.poster_path,
+//           backdrop_path: movieDetailsGlobal.backdrop_path,
+//           original_title: movieDetailsGlobal.original_title,
+//           genre_ids: movieDetailsGlobal.genres.map(a => a),
+//           release_date: movieDetailsGlobal.release_date,
+//           vote_average: movieDetailsGlobal.vote_average,
+//         });
+//         successNotificationWatched();
+//       } else {
+//         errorNotificationRepeatFilm();
+//       }
+//     });
+//   closeModal();
+// }
+
+// function addQueueById() {
+//   db.collection('queue')
+//     .get()
+//     .then(querySnapshot => {
+//       const ids = [];
+//       querySnapshot.forEach(doc => ids.push(doc.data().id));
+//       const isExist = ids.some(id => id === movieDetailsGlobal.id);
+//       if (!isExist) {
+//         db.collection('queue').add({
+//           collection: 'queue',
+//           id: movieDetailsGlobal.id,
+//           poster_path: movieDetailsGlobal.poster_path,
+//           backdrop_path: movieDetailsGlobal.backdrop_path,
+//           original_title: movieDetailsGlobal.original_title,
+//           genre_ids: movieDetailsGlobal.genres.map(a => a),
+//           release_date: movieDetailsGlobal.release_date,
+//           vote_average: movieDetailsGlobal.vote_average,
+//         });
+//         successNotificationQueue();
+//       } else {
+//         errorNotificationRepeatFilm();
+//       }
+//     });
+//   closeModal();
+// }

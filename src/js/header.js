@@ -1,7 +1,9 @@
 import libraryHeaderTpl from '../templates/libraryHeaderTpl.hbs';
 import getRefs from './getRefs.js';
 import { onChangeCollection } from "./link-to-localstorage";
-import { renderWatchedBtn } from "./engine";
+import { renderWatchedCollection,savedWatchedCollection } from "./add-watched";
+import { renderQueueCollection,savedQueueCollection } from "./add-queue";
+// import { renderWatchedBtn } from "./engine";
 
 // замена кнопок sign in и my library
 // const signIn = document.querySelector('[data-action="registerIn"]');
@@ -19,7 +21,8 @@ function onLibraryPageClick(e) {
   refs.itemLibrary.classList.add('current');
   refs.searchResField.textContent = '';
   refs.searchInput.value = '';
-  renderWatchedBtn()
+  // renderWatchedBtn()
+  renderWatchedCollection()
   onChangeCollection(e)
   // refs.btnHome.addEventListener('click', onHomePageClick);
   // refs.logo.addEventListener('click', onHomePageClick);
@@ -31,6 +34,18 @@ function renderButton() {
   makeBtn.setAttribute('data-btn', 'container');
   makeBtn.insertAdjacentHTML('afterbegin', libraryHeaderTpl());
   refs.searchFilm.replaceWith(makeBtn);
+  const btnRefs = getBtnCollection();
+  btnRefs.watchedBtn.addEventListener('click', savedWatchedCollection);
+  btnRefs.queueBtn.addEventListener('click', savedQueueCollection)
+
+}
+
+function getBtnCollection() {
+  const refs = {
+    watchedBtn: document.querySelector('.js-watched-btn'),
+    queueBtn: document.querySelector('.js-watched-que') 
+  }
+  return refs
 }
 
 function onHomePageClick(e) {
@@ -66,4 +81,4 @@ refs.btnHome.addEventListener('click', onHomePageClick);
 refs.logo.addEventListener('click', onHomePageClick);
 // signIn.addEventListener('click', onSignInBtnClick);
 // headerBtnSignUp.addEventListener('click', onSignUpBtnClick);
-export { renderButton, onLibraryPageClick };
+export { renderButton, onLibraryPageClick, getBtnCollection };
