@@ -1,8 +1,11 @@
+
 // import filmCard from '../templates/filmCardFirebase.hbs';
 // import getRefs from './getRefs';
 // import { successNotificationWatchedRemove, successNotificationQueueRemove } from './pnotify';
 
+
 // const refs = getRefs();
+
 
 // const onWatchedLibraryClick = evt => {
 //   if (evt.target.classList.contains('js-watched-btn')) {
@@ -100,3 +103,4 @@
 // };
 
 // export {renderWatchedBtn, renderQueueBtn}
+
